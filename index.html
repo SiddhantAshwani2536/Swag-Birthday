@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swagata's Birthday Journey</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="transition-overlay"></div>
+
+<div id="scene-container">
+
+    <!-- SCENE 1 -->
+    <section class="scene active" id="scene1">
+
+        <div class="stars">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+        <div class="content">
+
+            <div class="home-icon">🏡</div>
+
+            <h1>Welcome Home</h1>
+
+            <p class="subtitle">
+                Even though you're far away,
+                for the next few minutes,
+                come home with us.
+            </p>
+
+            <button onclick="goToScene(2)">
+                Begin Journey ✨
+            </button>
+
+        </div>
+
+        <div class="fireflies">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+    </section>
+
+
+    <!-- SCENE 2 -->
+    <section class="scene" id="scene2">
+
+        <div class="content">
+
+            <h1>Memory Forest</h1>
+
+            <p>
+                Every memory is a little light
+                that never fades away.
+            </p>
+
+            <div class="memory-grid">
+
+                <div class="memory-card">
+                    <img src="https://picsum.photos/300?1">
+                    <span>Childhood Memory</span>
+                </div>
+
+                <div class="memory-card">
+                    <img src="https://picsum.photos/300?2">
+                    <span>Family Memory</span>
+                </div>
+
+                <div class="memory-card">
+                    <img src="https://picsum.photos/300?3">
+                    <span>Funny Memory</span>
+                </div>
+
+                <div class="memory-card">
+                    <img src="https://picsum.photos/300?4">
+                    <span>Special Memory</span>
+                </div>
+
+            </div>
+
+            <button onclick="goToScene(3)">
+                Follow The Fireflies →
+            </button>
+
+        </div>
+
+        <div class="fireflies">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+    </section>
+
+    <!-- SCENE 3 -->
+    <section class="scene" id="scene3">
+
+        <div class="content">
+
+            <h1>Family Quiz 😄</h1>
+
+            <div class="quiz-box">
+
+                <h2>Who is your favourite sibling?</h2>
+
+                <button onclick="quizAnswer()">
+                    Siddhant
+                </button>
+
+                <button onclick="quizAnswer()">
+                    Siddhant
+                </button>
+
+                <button onclick="quizAnswer()">
+                    Siddhant
+                </button>
+
+            </div>
+
+            <p id="quiz-result"></p>
+
+        </div>
+
+        <div class="fireflies">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+    </section>
+
+    <!-- SCENE 4 -->
+<section class="scene" id="scene4">
+    <div class="content">
+        <h1>Puppy Village 🐶</h1>
+
+        <div class="dog-grid">
+
+            <div class="dog-card" onclick="showDogMessage(this)">
+                🐕
+            </div>
+
+            <div class="dog-card" onclick="showDogMessage(this)">
+                🐶
+            </div>
+
+            <div class="dog-card" onclick="showDogMessage(this)">
+                🦮
+            </div>
+
+        </div>
+
+        <p id="dogMessage"></p>
+
+        <button onclick="goToScene(5)">
+            Continue →
+        </button>
+    </div>
+
+    <div class="fireflies">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+</section>
+
+<!-- SCENE 5 -->
+<section class="scene" id="scene5">
+    <div class="content">
+        <h1>Dance Garden 💃</h1>
+
+        <div class="flower-field">
+            🌸 🌺 🌷 🌼 🌸 🌺 🌷
+        </div>
+
+        <p>
+            Some people walk through life.
+            You danced through it.
+        </p>
+
+        <button onclick="goToScene(6)">
+            Continue →
+        </button>
+    </div>
+
+    <div class="fireflies">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+</section>
+
+<!-- SCENE 6 -->
+<section class="scene" id="scene6">
+    <div class="content">
+
+        <h1>Dream Bridge ✨</h1>
+
+        <div class="qualities">
+
+            <span>Strong</span>
+            <span>Independent</span>
+            <span>Curious</span>
+            <span>Loving</span>
+            <span>Brave</span>
+            <span>Hardworking</span>
+
+        </div>
+
+        <button onclick="goToScene(7)">
+            Continue →
+        </button>
+
+    </div>
+
+    <div class="fireflies">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+</section>
+
+<!-- SCENE 7 -->
+<section class="scene" id="scene7">
+
+    <div class="content">
+
+        <h1>Golden Ticket 🎬</h1>
+
+        <div class="ticket">
+
+            Biggest Hrithik Fan Award
+
+        </div>
+
+        <button onclick="goToScene(8)">
+            Continue →
+        </button>
+
+    </div>
+
+    <div class="fireflies">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+</section>
+
+<!-- SCENE 8 -->
+<section class="scene" id="scene8">
+
+    <div class="content">
+
+        <h1>Letters From Home 💌</h1>
+
+        <div class="letters">
+
+            <div class="letter" onclick="openLetter('Mom')">
+    Mom
+</div>
+            <div class="letter" onclick="openLetter('Brother')">
+    Brother
+</div>
+            <div class="letter" onclick="openLetter('Husband')">
+    Husband
+</div>
+            <div class="letter" onclick="openLetter('Friend')">
+    Friend
+</div>
+            <div class="letter" onclick="openLetter('Friend')">
+    Friend
+</div>
+            <div class="letter" onclick="openLetter('Friend')">
+    Friend
+</div>
+
+        </div>
+
+        <button onclick="goToScene(9)">
+            Open Video Messages →
+        </button>
+
+    </div>
+
+    <div class="fireflies">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+</section>
+
+<!-- SCENE 9 -->
+<section class="scene" id="scene9">
+
+    <div class="content">
+
+        <h1>Video Messages 🎥</h1>
+
+        <div class="video-grid">
+
+            <video controls>
+                <source src="assets/videos/video1.mp4">
+            </video>
+
+            <video controls>
+                <source src="assets/videos/video2.mp4">
+            </video>
+
+        </div>
+
+        <button onclick="goToScene(10)">
+            Final Surprise →
+        </button>
+
+    </div>
+
+    <div class="fireflies">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+</section>
+
+<!-- SCENE 10 -->
+<section class="scene" id="scene10">
+
+    <div class="content">
+
+<div class="lantern-sky">
+
+    <div class="lantern">🏮</div>
+    <div class="lantern">🏮</div>
+    <div class="lantern">🏮</div>
+    <div class="lantern">🏮</div>
+    <div class="lantern">🏮</div>
+
+</div>
+
+        <h1>Happy Birthday Swagata ❤️</h1>
+
+        <p>
+            No matter where life takes you,
+            this will always be home.
+        </p>
+
+    </div>
+
+    <div class="fireflies">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+</section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

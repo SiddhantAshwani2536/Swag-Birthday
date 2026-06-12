@@ -1,0 +1,518 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+    font-family:Segoe UI,sans-serif;
+    background:#080613;
+    color:white;
+}
+
+.scene{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    opacity:0;
+    pointer-events:none;
+
+    transition:1s;
+}
+
+.scene.active{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.content{
+    position:relative;
+    z-index:10;
+
+    text-align:center;
+    width:90%;
+    max-width:1100px;
+}
+
+#scene1{
+    background:
+    linear-gradient(
+    180deg,
+    #120b25,
+    #241246,
+    #3a1f63);
+}
+
+#scene2{
+    background:
+    linear-gradient(
+    180deg,
+    #1f2d1f,
+    #27452d,
+    #3d6b46);
+}
+
+#scene3{
+    background:
+    linear-gradient(
+    180deg,
+    #3f1d55,
+    #592b7a,
+    #7b4ca4);
+}
+
+.home-icon{
+    font-size:100px;
+    animation:float 3s infinite;
+}
+
+h1{
+    margin-bottom:20px;
+    font-size:3rem;
+}
+
+.subtitle{
+    max-width:600px;
+    margin:auto;
+    line-height:1.7;
+}
+
+button{
+    margin-top:30px;
+    border:none;
+    border-radius:50px;
+    padding:15px 35px;
+    cursor:pointer;
+    font-size:18px;
+    background:#ff92d4;
+    color:white;
+    position:relative;
+    z-index:20;
+}
+
+.memory-grid{
+    margin-top:40px;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.memory-card{
+
+    background:
+    rgba(255,255,255,.12);
+
+    backdrop-filter:
+    blur(12px);
+
+    border:
+    1px solid
+    rgba(255,255,255,.15);
+
+    transition:.4s;
+
+    cursor:pointer;
+}
+
+.memory-card:hover{
+
+    transform:
+    translateY(-10px)
+    scale(1.05);
+
+}
+
+.memory-card img{
+    width:100%;
+    border-radius:12px;
+}
+
+.memory-card span{
+    display:block;
+    margin-top:10px;
+}
+
+.quiz-box{
+    margin-top:30px;
+}
+
+.quiz-box button{
+    display:block;
+    margin:15px auto;
+}
+
+#quiz-result{
+    margin-top:30px;
+    font-size:22px;
+    min-height:40px;
+}
+
+#transition-overlay{
+    position:fixed;
+    inset:0;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(255,220,240,.95),
+        rgba(255,170,220,.95)
+    );
+
+    transform:scaleX(0);
+
+    z-index:999;
+    pointer-events:none;
+}
+
+#transition-overlay.animate{
+    animation:wipe 1s ease;
+}
+
+@keyframes wipe{
+
+    0%{
+        transform:scaleX(0);
+    }
+
+    50%{
+        transform:scaleX(1);
+    }
+
+    100%{
+        transform:scaleX(0);
+        transform-origin:right;
+    }
+
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+@media(max-width:768px){
+
+    h1{
+        font-size:2rem;
+    }
+
+}
+
+.dog-grid{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    margin:30px 0;
+}
+
+.dog-card{
+    font-size:80px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.dog-card:hover{
+    transform:scale(1.2);
+}
+
+#dogMessage{
+    min-height:40px;
+    margin-top:20px;
+}
+
+.flower-field{
+    font-size:50px;
+    margin:30px 0;
+    animation:float 4s infinite;
+}
+
+.qualities{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    margin-top:40px;
+}
+
+.qualities span{
+
+    animation:
+    floatQuality
+    4s infinite;
+
+    font-weight:bold;
+}
+
+@keyframes floatQuality{
+
+    0%,100%{
+        transform:
+        translateY(0);
+    }
+
+    50%{
+        transform:
+        translateY(-12px);
+    }
+
+}
+
+.ticket{
+    background:gold;
+    color:black;
+    padding:40px;
+    border-radius:20px;
+    margin:30px auto;
+    max-width:500px;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.letters{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-top:40px;
+}
+
+.letter{
+    background:rgba(255,255,255,.15);
+    padding:40px;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+.video-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    margin-top:30px;
+}
+
+video{
+    width:100%;
+    border-radius:20px;
+}
+
+.lantern-sky{
+
+    position:relative;
+
+    height:250px;
+}
+
+.lantern{
+
+    position:absolute;
+
+    font-size:50px;
+
+    animation:
+    rise 10s linear infinite;
+}
+
+.lantern:nth-child(1){
+    left:10%;
+}
+
+.lantern:nth-child(2){
+    left:30%;
+}
+
+.lantern:nth-child(3){
+    left:50%;
+}
+
+.lantern:nth-child(4){
+    left:70%;
+}
+
+.lantern:nth-child(5){
+    left:90%;
+}
+
+@keyframes rise{
+
+    from{
+        transform:
+        translateY(250px);
+    }
+
+    to{
+        transform:
+        translateY(-250px);
+    }
+
+}
+
+.stars{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+.stars span{
+
+    position:absolute;
+
+    width:4px;
+    height:4px;
+
+    background:white;
+
+    border-radius:50%;
+
+    animation:twinkle 4s infinite;
+}
+
+.stars span:nth-child(1){
+    top:10%;
+    left:15%;
+}
+
+.stars span:nth-child(2){
+    top:20%;
+    left:80%;
+}
+
+.stars span:nth-child(3){
+    top:40%;
+    left:30%;
+}
+
+.stars span:nth-child(4){
+    top:70%;
+    left:90%;
+}
+
+.stars span:nth-child(5){
+    top:80%;
+    left:20%;
+}
+
+.stars span:nth-child(6){
+    top:60%;
+    left:50%;
+}
+
+.stars span:nth-child(7){
+    top:25%;
+    left:60%;
+}
+
+.stars span:nth-child(8){
+    top:50%;
+    left:75%;
+}
+
+@keyframes twinkle{
+
+    0%,100%{
+        opacity:.2;
+        transform:scale(1);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(2);
+    }
+
+}
+
+.fireflies{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+}
+
+.fireflies span{
+
+    position:absolute;
+
+    width:8px;
+    height:8px;
+
+    background:#ffe97a;
+
+    border-radius:50%;
+
+    box-shadow:
+    0 0 15px #ffe97a;
+
+    animation:fly 12s linear infinite;
+}
+
+.fireflies span:nth-child(1){
+    left:10%;
+    animation-delay:0s;
+}
+
+.fireflies span:nth-child(2){
+    left:35%;
+    animation-delay:2s;
+}
+
+.fireflies span:nth-child(3){
+    left:65%;
+    animation-delay:4s;
+}
+
+.fireflies span:nth-child(4){
+    left:90%;
+    animation-delay:6s;
+}
+
+@keyframes fly{
+
+    0%{
+        transform:
+        translateY(100vh)
+        translateX(0);
+    }
+
+    100%{
+        transform:
+        translateY(-100px)
+        translateX(120px);
+    }
+
+}
+
+.dog-card{
+
+    animation:
+    bounceDog
+    2s infinite;
+}
+
+@keyframes bounceDog{
+
+    0%,100%{
+        transform:
+        translateY(0);
+    }
+
+    50%{
+        transform:
+        translateY(-15px);
+    }
+
+}
