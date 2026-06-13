@@ -375,7 +375,6 @@
 
 </section>
 
-```html
 <!-- SCENE 5 : DANCE OF A THOUSAND MOMENTS -->
 
 <section class="scene" id="scene5">
@@ -388,14 +387,13 @@
         <span></span>
     </div>
 
-    <div class="content">
-
-        <div class="stage-curtains">
+    <div class="stage-curtains">
 
             <div class="curtain curtain-left"></div>
             <div class="curtain curtain-right"></div>
 
         </div>
+    <div class="content">
 
         <div class="spotlight"></div>
 
@@ -758,32 +756,152 @@
 
 </section>
 
+<!-- SCENE 7 : HRITHIK ROSHAN BIGGEST FAN AWARD -->
 
-<!-- SCENE 7 -->
 <section class="scene" id="scene7">
 
-    <div class="content">
+    <!-- BACKGROUND COLLAGE -->
+<div class="hrithik-bg"></div>
 
-        <h1>Golden Ticket 🎬</h1>
+    <!-- FLOATING STARS -->
 
-        <div class="ticket">
+    <div class="award-particles">
 
-            Biggest Hrithik Fan Award
-
-        </div>
-
-        <button onclick="goToScene(8)">
-            Continue →
-        </button>
+        <span>⭐</span>
+        <span>✨</span>
+        <span>🎬</span>
+        <span>🏆</span>
+        <span>⭐</span>
+        <span>✨</span>
 
     </div>
 
-    <div class="fireflies">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
+    <!-- CAMERA FLASH -->
+
+    <div
+        id="cameraFlash"
+        class="camera-flash">
+    </div>
+
+    <div class="content">
+
+        <div class="award-container">
+
+            <div class="award-header">
+
+                <div class="award-badge">
+
+                    🎬 BOLLYWOOD AWARDS 2025 🎬
+
+                </div>
+
+                <h1 class="award-title">
+
+                    Hrithik Roshan's
+                    Biggest Fan Award
+
+                </h1>
+
+                <p class="award-subtitle">
+
+                    Recognising extraordinary dedication,
+                    endless admiration,
+                    and a completely reasonable
+                    level of Hrithik obsession.
+
+                </p>
+
+            </div>
+
+            <!-- TROPHY -->
+
+            <div
+                class="award-trophy"
+                onclick="acceptHrithikAward()">
+
+                🏆
+
+            </div>
+
+            <div class="award-message">
+
+                <h2>
+                    And the Award Goes To...
+                </h2>
+
+                <div class="winner-name">
+
+                    SWAGATA
+
+                </div>
+
+                <p>
+
+                    For years of watching movies,
+                    admiring performances,
+                    and being one of the most loyal
+                    Hrithik Roshan fans ever.
+
+                </p>
+
+            </div>
+
+            <button
+                class="accept-award-btn"
+                onclick="acceptHrithikAward()">
+
+                📸 Accept Award
+
+            </button>
+
+        </div>
+
+        <!-- AWARD REVEAL -->
+
+        <div
+            id="awardReveal"
+            class="award-reveal hidden">
+
+            <div class="award-photo-frame">
+
+                <img
+                    src="assets/hrithik-award.jpeg"
+                    alt="Award Photo">
+
+            </div>
+
+            <h2 class="award-reveal-title">
+
+                Officially Certified
+
+            </h2>
+
+            <h3 class="award-reveal-subtitle">
+
+                Hrithik Roshan's Biggest Fan
+
+            </h3>
+
+            <p class="award-reveal-text">
+
+                This prestigious award celebrates
+                unmatched admiration,
+                unwavering support,
+                and a lifelong commitment
+                to appreciating Hrithik Roshan.
+
+            </p>
+
+            <button
+                onclick="goToScene(8)">
+
+                Continue Journey →
+
+            </button>
+
+        </div>
+
+    </div>
 
 </section>
 

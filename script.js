@@ -1231,3 +1231,181 @@ document.addEventListener(
     "DOMContentLoaded",
     initializeDreamBridge
 );
+/* =====================================
+   HRITHIK ROSHAN FAN AWARD
+===================================== */
+
+let awardUnlocked = false;
+
+function acceptHrithikAward(){
+
+    if(awardUnlocked) return;
+
+    awardUnlocked = true;
+
+    const flash =
+    document.getElementById(
+        "cameraFlash"
+    );
+
+    const reveal =
+    document.getElementById(
+        "awardReveal"
+    );
+
+    const container =
+    document.querySelector(
+        "#scene7 .award-container"
+    );
+
+    /* Camera Flash */
+
+    flash.classList.add(
+        "active"
+    );
+
+    /* Sound effect (optional later) */
+
+    setTimeout(()=>{
+
+        flash.classList.remove(
+            "active"
+        );
+
+    },800);
+
+    /* Reveal Award */
+
+    setTimeout(()=>{
+
+        container.style.display =
+        "none";
+
+        reveal.classList.remove(
+            "hidden"
+        );
+
+        launchAwardConfetti();
+
+    },1000);
+
+}
+
+/* =====================================
+   AWARD CONFETTI
+===================================== */
+
+function launchAwardConfetti(){
+
+    const colors = [
+
+        "#FFD700",
+        "#FFB6D9",
+        "#FFFFFF",
+        "#FF8C42",
+        "#FFE59F"
+
+    ];
+
+    for(let i=0;i<100;i++){
+
+        const confetti =
+        document.createElement(
+            "div"
+        );
+
+        confetti.className =
+        "award-confetti";
+
+        confetti.style.left =
+        Math.random()*100 + "vw";
+
+        confetti.style.background =
+        colors[
+            Math.floor(
+                Math.random() *
+                colors.length
+            )
+        ];
+
+        confetti.style.animationDuration =
+        (3 + Math.random()*2)
+        + "s";
+
+        document.body.appendChild(
+            confetti
+        );
+
+        setTimeout(()=>{
+
+            confetti.remove();
+
+        },5000);
+
+    }
+
+}
+
+/* =====================================
+   TROPHY SPARKLES
+===================================== */
+
+function createTrophySparkles(){
+
+    const trophy =
+    document.querySelector(
+        ".award-trophy"
+    );
+
+    if(!trophy) return;
+
+    setInterval(()=>{
+
+        const sparkle =
+        document.createElement(
+            "div"
+        );
+
+        sparkle.className =
+        "trophy-sparkle";
+
+        sparkle.innerHTML =
+        "✨";
+
+        const rect =
+        trophy.getBoundingClientRect();
+
+        sparkle.style.left =
+        (
+            rect.left +
+            Math.random()*rect.width
+        ) + "px";
+
+        sparkle.style.top =
+        (
+            rect.top +
+            Math.random()*rect.height
+        ) + "px";
+
+        document.body.appendChild(
+            sparkle
+        );
+
+        setTimeout(()=>{
+
+            sparkle.remove();
+
+        },2000);
+
+    },500);
+
+}
+
+/* =====================================
+   AUTO INIT
+===================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    createTrophySparkles
+);

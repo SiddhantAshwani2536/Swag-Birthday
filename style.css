@@ -1346,7 +1346,40 @@ button{
         #1f1035 100%
     );
 
-    overflow-y:auto;
+    min-height:100vh;
+
+    height:auto;
+
+    position:relative;
+
+    padding-bottom:120px;
+
+    box-sizing:border-box;
+
+    display:block !important;
+
+    overflow-y:auto !important;
+
+    padding-top:250px !important;
+    justify-content:flex-start !important;
+
+    align-items:flex-start !important;
+
+    padding-top:40px;
+}
+#scene5 .content{
+
+    z-index:20;
+
+    width:100%;
+
+    max-width:1400px;
+
+    margin:0 auto;
+
+    text-align:center;
+
+    position:relative;
 }
 
 /* =========================================
@@ -1417,9 +1450,12 @@ button{
 
 .stage-curtains{
     position:absolute;
+
     inset:0;
+
+    z-index:5;
+
     pointer-events:none;
-    overflow:hidden;
 }
 
 .curtain{
@@ -1487,17 +1523,6 @@ button{
 
 .spotlight{
 
-    position:absolute;
-
-    top:0;
-    left:50%;
-
-    transform:
-    translateX(-50%);
-
-    width:500px;
-    height:700px;
-
     background:
     radial-gradient(
         ellipse at top,
@@ -1506,6 +1531,20 @@ button{
     );
 
     pointer-events:none;
+
+    position:absolute;
+
+    top:0;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:500px;
+
+    height:700px;
+
+    z-index:2;
 }
 
 /* =========================================
@@ -1513,6 +1552,16 @@ button{
 ========================================= */
 
 .dance-title{
+
+    margin-top:0;
+
+    padding-top:20px;
+
+    font-size:clamp(
+        2.2rem,
+        5vw,
+        4rem
+    );
 
     color:#ffe4a6;
 
@@ -1522,6 +1571,14 @@ button{
 
     text-shadow:
     0 0 25px rgba(255,215,0,.3);
+
+    display:block !important;
+
+    position:relative !important;
+
+    z-index:9999 !important;
+
+    margin-bottom:20px !important;
 }
 
 .dance-subtitle{
@@ -1533,9 +1590,15 @@ button{
 
     margin:auto;
 
-    margin-bottom:35px;
-
     line-height:1.8;
+
+    display:block !important;
+
+    position:relative !important;
+
+    z-index:9999 !important;
+
+    margin-bottom:40px !important;
 }
 
 /* =========================================
@@ -1546,7 +1609,7 @@ button{
 
     width:340px;
 
-    margin:0 auto 50px;
+    margin:30px auto 50px;
 
     position:relative;
 
@@ -2749,5 +2812,575 @@ video{
         transform:
         translateY(-200px)
         rotate(360deg);
+    }
+}
+/* ==========================================
+   HRITHIK ROSHAN FAN AWARD
+========================================== */
+
+#scene7{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        180deg,
+        #14071f,
+        #2b1047,
+        #4b1f73
+    );
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+/* ==========================================
+   BACKGROUND COLLAGE
+========================================== */
+
+.hrithik-bg{
+
+    position:absolute;
+    inset:0;
+
+    background-image:
+    url("assets/hrithik-collage.jpeg");
+
+    background-size:cover;
+    background-position:center;
+
+    opacity:0.22;
+
+    filter:
+    blur(2px);
+
+    z-index:0;
+}
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+#scene7 .content{
+
+    position:relative;
+
+    z-index:10;
+}
+
+/* ==========================================
+   FLOATING PARTICLES
+========================================== */
+
+.award-particles{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:5;
+}
+
+.award-particles span{
+
+    position:absolute;
+
+    font-size:32px;
+
+    animation:
+    awardFloat 8s ease-in-out infinite;
+}
+
+.award-particles span:nth-child(1){
+    top:10%;
+    left:12%;
+}
+
+.award-particles span:nth-child(2){
+    top:18%;
+    right:15%;
+}
+
+.award-particles span:nth-child(3){
+    top:45%;
+    left:8%;
+}
+
+.award-particles span:nth-child(4){
+    top:60%;
+    right:10%;
+}
+
+.award-particles span:nth-child(5){
+    top:80%;
+    left:20%;
+}
+
+.award-particles span:nth-child(6){
+    top:75%;
+    right:25%;
+}
+
+@keyframes awardFloat{
+
+    0%,100%{
+        transform:
+        translateY(0)
+        rotate(0deg);
+    }
+
+    50%{
+        transform:
+        translateY(-20px)
+        rotate(10deg);
+    }
+}
+
+/* ==========================================
+   AWARD CONTAINER
+========================================== */
+
+.award-container{
+
+    max-width:900px;
+
+    margin:auto;
+
+    padding:30px;
+}
+
+.award-header{
+
+    margin-bottom:25px;
+}
+
+.award-badge{
+
+    display:inline-block;
+
+    padding:12px 22px;
+
+    border-radius:999px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ffd66b,
+        #ffb347
+    );
+
+    color:#3c1b5c;
+
+    font-weight:900;
+
+    letter-spacing:1px;
+
+    margin-bottom:20px;
+}
+
+.award-title{
+
+    font-size:3.5rem;
+
+    color:#ffe59f;
+
+    line-height:1.2;
+
+    text-shadow:
+    0 0 20px rgba(255,215,0,.35);
+
+    margin-bottom:20px;
+}
+
+.award-subtitle{
+
+    color:
+    rgba(255,255,255,.92);
+
+    max-width:700px;
+
+    margin:auto;
+
+    line-height:1.8;
+}
+
+/* ==========================================
+   TROPHY
+========================================== */
+
+.award-trophy{
+
+    font-size:170px;
+
+    margin:30px auto;
+
+    cursor:pointer;
+
+    width:max-content;
+
+    animation:
+    trophyBounce 3s infinite;
+
+    filter:
+    drop-shadow(
+        0 0 30px gold
+    );
+
+    transition:.4s;
+}
+
+.award-trophy:hover{
+
+    transform:
+    scale(1.1);
+}
+
+@keyframes trophyBounce{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-18px);
+    }
+}
+
+/* ==========================================
+   MESSAGE
+========================================== */
+
+.award-message{
+
+    max-width:750px;
+
+    margin:auto;
+}
+
+.award-message h2{
+
+    color:#ffd66b;
+
+    margin-bottom:20px;
+
+    font-size:2rem;
+}
+
+.winner-name{
+
+    font-size:4rem;
+
+    font-weight:900;
+
+    color:#ffb3d9;
+
+    margin:25px 0;
+
+    text-shadow:
+    0 0 25px rgba(255,179,217,.5);
+}
+
+.award-message p{
+
+    color:white;
+
+    line-height:1.8;
+
+    font-size:18px;
+}
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.accept-award-btn{
+
+    margin-top:35px;
+
+    padding:18px 40px;
+
+    border:none;
+
+    border-radius:999px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    font-weight:900;
+
+    color:#43206f;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ffd66b,
+        #ffb3d9
+    );
+
+    box-shadow:
+    0 15px 35px rgba(255,180,120,.25);
+
+    transition:.3s;
+}
+
+.accept-award-btn:hover{
+
+    transform:
+    scale(1.06);
+}
+
+/* ==========================================
+   CAMERA FLASH
+========================================== */
+
+.camera-flash{
+
+    position:fixed;
+
+    inset:0;
+
+    background:white;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    z-index:99999;
+}
+
+.camera-flash.active{
+
+    animation:
+    flashEffect .8s ease;
+}
+
+@keyframes flashEffect{
+
+    0%{
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:0;
+    }
+}
+
+/* ==========================================
+   AWARD REVEAL
+========================================== */
+
+.award-reveal{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-height:80vh;
+
+    animation:revealAward .8s ease;
+}
+
+@keyframes revealAward{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.award-photo-frame{
+
+    width:min(550px,90vw);
+
+    margin-bottom:30px;
+
+    padding:10px;
+
+    border-radius:30px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ffd66b,
+        #ffb347
+    );
+
+    box-shadow:
+    0 0 40px rgba(255,215,0,.35);
+}
+
+.award-photo-frame img{
+
+    width:100%;
+
+    display:block;
+
+    border-radius:22px;
+}
+
+.award-reveal-title{
+
+    margin-top:25px;
+
+    color:#ffe59f;
+
+    font-size:2.5rem;
+}
+
+.award-reveal-subtitle{
+
+    color:#ffb3d9;
+
+    font-size:1.6rem;
+
+    margin-top:10px;
+}
+
+.award-reveal-text{
+
+    max-width:700px;
+
+    margin:20px auto;
+
+    color:white;
+
+    line-height:1.8;
+}
+
+/* ==========================================
+   HIDDEN
+========================================== */
+
+.hidden{
+
+    display:none;
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:768px){
+
+    .award-title{
+        font-size:2.3rem;
+    }
+
+    .winner-name{
+        font-size:2.5rem;
+    }
+
+    .award-trophy{
+        font-size:120px;
+    }
+
+    .award-photo-frame{
+        width:320px;
+    }
+
+    .award-reveal-title{
+        font-size:2rem;
+    }
+}
+/* =====================================
+   AWARD CONFETTI
+===================================== */
+
+.award-confetti{
+
+    position:fixed;
+
+    top:-20px;
+
+    width:12px;
+    height:12px;
+
+    z-index:99999;
+
+    animation:
+    awardConfettiFall
+    linear forwards;
+}
+
+@keyframes awardConfettiFall{
+
+    from{
+
+        transform:
+        translateY(0)
+        rotate(0deg);
+
+        opacity:1;
+    }
+
+    to{
+
+        transform:
+        translateY(110vh)
+        rotate(720deg);
+
+        opacity:0;
+    }
+}
+
+/* =====================================
+   TROPHY SPARKLES
+===================================== */
+
+.trophy-sparkle{
+
+    position:fixed;
+
+    font-size:20px;
+
+    pointer-events:none;
+
+    z-index:9999;
+
+    animation:
+    trophySparkle 2s ease-out forwards;
+}
+
+@keyframes trophySparkle{
+
+    from{
+
+        opacity:1;
+
+        transform:
+        translateY(0)
+        scale(1);
+    }
+
+    to{
+
+        opacity:0;
+
+        transform:
+        translateY(-60px)
+        scale(1.8);
     }
 }
