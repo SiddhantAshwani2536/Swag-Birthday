@@ -66,26 +66,75 @@
                 that never fades away.
             </p>
 
-            <div class="memory-grid">
+            <div class="forest-tree">
 
-                <div class="memory-card">
-                    <img src="https://picsum.photos/300?1">
-                    <span>Childhood Memory</span>
+                <div class="tree-crown"></div>
+                <div class="tree-trunk"></div>
+
+                <div class="leaf-card leaf-1">
+                    <div class="card-inner">
+                        <div class="card-face card-front">
+                            Childhood
+                        </div>
+                        <div class="card-face card-back">
+                            <img src="https://picsum.photos/320/320?1" alt="Childhood memory image">
+                        </div>
+                    </div>
                 </div>
 
-                <div class="memory-card">
-                    <img src="https://picsum.photos/300?2">
-                    <span>Family Memory</span>
+                <div class="leaf-card leaf-2">
+                    <div class="card-inner">
+                        <div class="card-face card-front">
+                            Family
+                        </div>
+                        <div class="card-face card-back">
+                            <img src="https://picsum.photos/320/320?2" alt="Family memory image">
+                        </div>
+                    </div>
                 </div>
 
-                <div class="memory-card">
-                    <img src="https://picsum.photos/300?3">
-                    <span>Funny Memory</span>
+                <div class="leaf-card leaf-3">
+                    <div class="card-inner">
+                        <div class="card-face card-front">
+                            Laughter
+                        </div>
+                        <div class="card-face card-back">
+                            <img src="https://picsum.photos/320/320?3" alt="Laughter memory image">
+                        </div>
+                    </div>
                 </div>
 
-                <div class="memory-card">
-                    <img src="https://picsum.photos/300?4">
-                    <span>Special Memory</span>
+                <div class="leaf-card leaf-4">
+                    <div class="card-inner">
+                        <div class="card-face card-front">
+                            Adventure
+                        </div>
+                        <div class="card-face card-back">
+                            <img src="https://picsum.photos/320/320?4" alt="Adventure memory image">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="leaf-card leaf-5">
+                    <div class="card-inner">
+                        <div class="card-face card-front">
+                            Dreams
+                        </div>
+                        <div class="card-face card-back">
+                            <img src="https://picsum.photos/320/320?5" alt="Dream memory image">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="leaf-card leaf-6">
+                    <div class="card-inner">
+                        <div class="card-face card-front">
+                            Joy
+                        </div>
+                        <div class="card-face card-back">
+                            <img src="https://picsum.photos/320/320?6" alt="Joy memory image">
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -114,19 +163,38 @@
 
             <div class="quiz-box">
 
-                <h2>Who is your favourite sibling?</h2>
+                <div class="kbc-header">
+                    <p class="kbc-title">🎬 KAUN BANEGA CROREPATI 🎬</p>
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="quiz-progress-fill"></div>
+                        </div>
+                        <p class="progress-text" id="quiz-progress-text">Question 1 of 10</p>
+                    </div>
+                </div>
 
-                <button onclick="quizAnswer()">
-                    Siddhant
-                </button>
+                <div class="quiz-content">
+                    <h2 id="quiz-question" class="quiz-question-animated">Question: Who is your favourite sibling?</h2>
 
-                <button onclick="quizAnswer()">
-                    Siddhant
-                </button>
-
-                <button onclick="quizAnswer()">
-                    Siddhant
-                </button>
+                    <div class="quiz-buttons">
+                        <button class="quiz-btn" onclick="quizAnswer('a')">
+                            <span class="option-letter">A</span>
+                            <span class="option-text" id="option-a">Option A</span>
+                        </button>
+                        <button class="quiz-btn" onclick="quizAnswer('b')">
+                            <span class="option-letter">B</span>
+                            <span class="option-text" id="option-b">Option B</span>
+                        </button>
+                        <button class="quiz-btn" onclick="quizAnswer('c')">
+                            <span class="option-letter">C</span>
+                            <span class="option-text" id="option-c">Option C</span>
+                        </button>
+                        <button class="quiz-btn" onclick="quizAnswer('d')">
+                            <span class="option-letter">D</span>
+                            <span class="option-text" id="option-d">Option D</span>
+                        </button>
+                    </div>
+                </div>
 
             </div>
 
@@ -144,101 +212,552 @@
     </section>
 
     <!-- SCENE 4 -->
+<!-- SCENE 4 -->
 <section class="scene" id="scene4">
-    <div class="content">
-        <h1>Puppy Village 🐶</h1>
 
-        <div class="dog-grid">
+    <div class="fireflies">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
-            <div class="dog-card" onclick="showDogMessage(this)">
-                🐕
+    <div class="content puppy-village-content">
+
+        <div class="puppy-village-header">
+
+            <div class="puppy-icon">
+                🐾
             </div>
 
-            <div class="dog-card" onclick="showDogMessage(this)">
-                🐶
+            <h1>
+                Puppy Village
+            </h1>
+
+            <p class="subtitle">
+                Every person has a spirit puppy.
+                Answer a few questions and discover
+                which lovable dog breed matches your personality.
+            </p>
+
+        </div>
+
+<div class="puppy-preview-section">
+
+    <h2 class="preview-title">
+        🐾 Which Puppy Matches Your Personality?
+    </h2>
+
+    <p class="preview-subtitle">
+        One of these adorable pups might be your spirit companion...
+    </p>
+
+    <div class="breed-preview-grid">
+
+        <div class="breed-preview-card">
+            <div class="breed-emoji">🐕</div>
+            <span>Golden Retriever</span>
+        </div>
+
+        <div class="breed-preview-card">
+            <div class="breed-emoji">🦮</div>
+            <span>Labrador</span>
+        </div>
+
+        <div class="breed-preview-card">
+            <div class="breed-emoji">🐕‍🦺</div>
+            <span>German Shepherd</span>
+        </div>
+
+        <div class="breed-preview-card">
+            <div class="breed-emoji">🐶</div>
+            <span>Border Collie</span>
+        </div>
+
+        <div class="breed-preview-card">
+            <div class="breed-emoji">❄️</div>
+            <span>Siberian Husky</span>
+        </div>
+
+        <div class="breed-preview-card">
+            <div class="breed-emoji">🐾</div>
+            <span>Beagle</span>
+        </div>
+
+        <div class="breed-preview-card">
+            <div class="breed-emoji">🎀</div>
+            <span>Poodle</span>
+        </div>
+
+        <div class="breed-preview-card">
+            <div class="breed-emoji">🌸</div>
+            <span>Shiba Inu</span>
+        </div>
+
+        <div class="breed-preview-card">
+            <div class="breed-emoji">🥨</div>
+            <span>Corgi</span>
+        </div>
+
+        <div class="breed-preview-card">
+            <div class="breed-emoji">❤️</div>
+            <span>Samoyed</span>
+        </div>
+
+    </div>
+
+    <button
+        class="start-puppy-btn"
+        onclick="startPuppyQuiz()">
+
+        Discover My Spirit Puppy ✨
+
+    </button>
+
+</div>
+
+        <div class="puppy-quiz-wrapper">
+
+            <div class="puppy-progress-container">
+
+                <div class="puppy-progress-bar">
+
+                    <div
+                        id="puppyProgressFill"
+                        class="puppy-progress-fill">
+                    </div>
+
+                </div>
+
+                <div
+                    id="puppyProgressText"
+                    class="puppy-progress-text">
+
+                    Question 1 of 10
+
+                </div>
+
             </div>
 
-            <div class="dog-card" onclick="showDogMessage(this)">
-                🦮
+            <div
+                id="puppyQuizCard"
+                class="puppy-quiz-card">
+
+                <div class="paw-print paw-1">🐾</div>
+                <div class="paw-print paw-2">🐾</div>
+                <div class="paw-print paw-3">🐾</div>
+
+                <h2
+                    id="puppyQuestion"
+                    class="puppy-question">
+
+                    Loading Question...
+
+                </h2>
+
+                <div
+                    id="puppyOptions"
+                    class="puppy-options">
+
+                </div>
+
+            </div>
+
+            <div
+                id="puppyResult"
+                class="puppy-result hidden">
+
             </div>
 
         </div>
 
-        <p id="dogMessage"></p>
-
-        <button onclick="goToScene(5)">
-            Continue →
-        </button>
     </div>
-
-    <div class="fireflies">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
 
 </section>
 
-<!-- SCENE 5 -->
-<section class="scene" id="scene5">
-    <div class="content">
-        <h1>Dance Garden 💃</h1>
+```html
+<!-- SCENE 5 : DANCE OF A THOUSAND MOMENTS -->
 
-        <div class="flower-field">
-            🌸 🌺 🌷 🌼 🌸 🌺 🌷
+<section class="scene" id="scene5">
+
+    <div class="dance-stars">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="content">
+
+        <div class="stage-curtains">
+
+            <div class="curtain curtain-left"></div>
+            <div class="curtain curtain-right"></div>
+
         </div>
 
-        <p>
-            Some people walk through life.
-            You danced through it.
+        <div class="spotlight"></div>
+
+        <h1 class="dance-title">
+            Dance Of A Thousand Moments 💃
+        </h1>
+
+        <p class="dance-subtitle">
+            Every performance told a story.
+            Every costume carried a dream.
+            Every step became a memory.
         </p>
 
-        <button onclick="goToScene(6)">
-            Continue →
-        </button>
-    </div>
+        <!-- HERO IMAGE -->
 
-    <div class="fireflies">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
+        <div class="hero-dance-card">
 
-</section>
+            <img
+                src="assets/dance/hero.jpeg"
+                alt="Hero Dance Image">
 
-<!-- SCENE 6 -->
-<section class="scene" id="scene6">
-    <div class="content">
-
-        <h1>Dream Bridge ✨</h1>
-
-        <div class="qualities">
-
-            <span>Strong</span>
-            <span>Independent</span>
-            <span>Curious</span>
-            <span>Loving</span>
-            <span>Brave</span>
-            <span>Hardworking</span>
+            <div class="hero-caption">
+                ✨ The Star Performer ✨
+            </div>
 
         </div>
 
-        <button onclick="goToScene(7)">
-            Continue →
+        <!-- PHOTO GALLERY -->
+
+        <div class="dance-gallery">
+
+            <div class="dance-photo photo1">
+                <img src="assets/dance/dance1.jpeg">
+            </div>
+
+            <div class="dance-photo photo2">
+                <img src="assets/dance/dance2.jpeg">
+            </div>
+
+            <div class="dance-photo photo3">
+                <img src="assets/dance/dance3.jpeg">
+            </div>
+
+            <div class="dance-photo photo4">
+                <img src="assets/dance/dance4.jpeg">
+            </div>
+
+            <div class="dance-photo photo5">
+                <img src="assets/dance/dance5.jpeg">
+            </div>
+
+            <div class="dance-photo photo6">
+                <img src="assets/dance/dance6.jpeg">
+            </div>
+
+            <div class="dance-photo photo7">
+                <img src="assets/dance/dance7.jpeg">
+            </div>
+
+            <div class="dance-photo photo8">
+                <img src="assets/dance/dance8.jpeg">
+            </div>
+
+            <div class="dance-photo photo9">
+                <img src="assets/dance/dance9.jpeg">
+            </div>
+
+            <div class="dance-photo photo10">
+                <img src="assets/dance/dance10.jpeg">
+            </div>
+
+        </div>
+
+        <!-- VIDEO BUTTERFLIES -->
+
+        <div class="video-butterflies">
+
+            <div
+                class="butterfly butterfly1"
+                onclick="openDanceVideo(1)">
+
+                🦋
+                <span>Performance 1</span>
+
+            </div>
+
+            <div
+                class="butterfly butterfly2"
+                onclick="openDanceVideo(2)">
+
+                🦋
+                <span>Performance 2</span>
+
+            </div>
+
+            <div
+                class="butterfly butterfly3"
+                onclick="openDanceVideo(3)">
+
+                🦋
+                <span>Performance 3</span>
+
+            </div>
+
+            <div
+                class="butterfly butterfly4"
+                onclick="openDanceVideo(4)">
+
+                🦋
+                <span>Performance 4</span>
+
+            </div>
+
+        </div>
+
+        <!-- VIDEO POPUP -->
+
+        <div
+            id="danceVideoPopup"
+            class="dance-video-popup hidden">
+
+            <div class="dance-video-card">
+
+                <button
+                    class="close-video"
+                    onclick="closeDanceVideo()">
+
+                    
+
+                </button>
+
+                <video
+                    id="danceVideoPlayer"
+                    controls>
+
+                    <source
+                        id="danceVideoSource"
+                        src="">
+
+                </video>
+
+            </div>
+
+        </div>
+
+        <button onclick="goToScene(6)">
+            Continue Journey →
         </button>
 
     </div>
 
-    <div class="fireflies">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
+</section>
+
+
+<!-- SCENE 6 : DREAM BRIDGE -->
+
+<section class="scene" id="scene6">
+
+    <!-- Stars -->
+
+    <div class="dream-stars">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Moon -->
+
+    <div class="dream-moon"></div>
+
+    <!-- Water -->
+
+    <div class="dream-water">
+
+        <div class="water-wave wave1"></div>
+        <div class="water-wave wave2"></div>
+        <div class="water-wave wave3"></div>
+
+    </div>
+
+    <div class="content">
+
+        <h1 class="dream-title">
+            The Dream Bridge 🌙
+        </h1>
+
+        <p class="dream-subtitle">
+            Every step reveals a beautiful part
+            of who you are...
+        </p>
+
+        <!-- BRIDGE -->
+
+        <div class="bridge-container">
+
+            <!-- GIRL -->
+
+            <div id="bridgeGirl" class="bridge-girl">
+                <img src="assets/girl.png">
+            </div>
+
+            <!-- PEBBLE S -->
+
+            <div
+                class="bridge-pebble active"
+                id="pebble0"
+                onclick="activatePebble(0)">
+
+                S
+
+            </div>
+
+            <!-- PEBBLE W -->
+
+            <div
+                class="bridge-pebble"
+                id="pebble1"
+                onclick="activatePebble(1)">
+
+                W
+
+            </div>
+
+            <!-- PEBBLE A -->
+
+            <div
+                class="bridge-pebble"
+                id="pebble2"
+                onclick="activatePebble(2)">
+
+                A
+
+            </div>
+
+            <!-- PEBBLE G -->
+
+            <div
+                class="bridge-pebble"
+                id="pebble3"
+                onclick="activatePebble(3)">
+
+                G
+
+            </div>
+
+            <!-- PEBBLE A -->
+
+            <div
+                class="bridge-pebble"
+                id="pebble4"
+                onclick="activatePebble(4)">
+
+                A
+
+            </div>
+
+            <!-- PEBBLE T -->
+
+            <div
+                class="bridge-pebble"
+                id="pebble5"
+                onclick="activatePebble(5)">
+
+                T
+
+            </div>
+
+            <!-- PEBBLE A -->
+
+            <div
+                class="bridge-pebble"
+                id="pebble6"
+                onclick="activatePebble(6)">
+
+                A
+
+            </div>
+
+        </div>
+
+        <!-- QUALITY CARD -->
+
+        <div
+            id="qualityCard"
+            class="quality-card hidden">
+
+            <div
+                id="qualityLetter"
+                class="quality-letter">
+
+                S
+
+            </div>
+
+            <h2 id="qualityTitle">
+                Strong
+            </h2>
+
+            <p id="qualityDescription">
+
+                Description goes here
+
+            </p>
+
+        </div>
+
+        <!-- FINAL REVEAL -->
+
+        <div
+            id="dreamFinalReveal"
+            class="dream-final hidden">
+
+            <h2>
+                ✨ SWAGATA ✨
+            </h2>
+
+            <p>
+                These aren't just letters.
+                They are the qualities that
+                make you who you are.
+            </p>
+
+            <div class="final-name">
+
+                <span>S</span>
+                <span>W</span>
+                <span>A</span>
+                <span>G</span>
+                <span>A</span>
+                <span>T</span>
+                <span>A</span>
+
+            </div>
+
+            <p class="dream-message">
+
+                Strong. Wise. Ambitious.
+                Graceful. Affectionate.
+                Talented. Amazing.
+
+            </p>
+
+        </div>
+
+        <!-- CONTINUE BUTTON -->
+
+        <button
+            id="dreamContinueBtn"
+            class="hidden"
+            onclick="goToScene(7)">
+
+            Continue Journey →
+
+        </button>
+
+    </div>
 
 </section>
+
 
 <!-- SCENE 7 -->
 <section class="scene" id="scene7">
