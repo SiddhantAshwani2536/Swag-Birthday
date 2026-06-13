@@ -1348,9 +1348,9 @@ button{
 
     min-height:100vh;
 
-    height:auto;
+    position:absolute !important;
 
-    position:relative;
+    inset:0 !important;
 
     padding-bottom:120px;
 
@@ -1359,11 +1359,6 @@ button{
     display:block !important;
 
     overflow-y:auto !important;
-
-    padding-top:250px !important;
-    justify-content:flex-start !important;
-
-    align-items:flex-start !important;
 
     padding-top:40px;
 }
@@ -1380,6 +1375,8 @@ button{
     text-align:center;
 
     position:relative;
+
+    padding:0 20px;
 }
 
 /* =========================================

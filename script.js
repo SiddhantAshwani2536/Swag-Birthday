@@ -32,54 +32,54 @@ function goToScene(nextScene){
 
 const quizQuestions = [
     {
-        question: "Who is your favourite sibling?",
-        options: { a: "Siddhant", b: "Myself", c: "The dog", d: "No one" },
+        question: "Who is the most systematic and organized son in law in our fam?",
+        options: { a: "Ashwin", b: "Kashy", c: "Babu", d: "None of the above" },
+        correct: "d"
+    },
+    {
+        question: "Who is the best multitasker yet stays humble?",
+        options: { a: "Nandini", b: "Uma", c: "Swagu", d: "None of the above" },
+        correct: "d"
+    },
+    {
+        question: "Who is the best Male dancer in our fam?",
+        options: { a: "Ashwin", b: "Gokul", c: "Babu", d: "Shekhar" },
         correct: "a"
     },
     {
-        question: "Who is always there for you?",
-        options: { a: "Strangers", b: "Your family", c: "Social media", d: "Your phone" },
-        correct: "b"
+        question: "Which one is swagu’s favourite clash royal emote?",
+        options: { a: "Bowlie", b: "Ho ho hou", c: "Electro wizardy zap", d: "Higwadaa hog riderrr" },
+        correct: "a"
     },
     {
-        question: "Who makes you laugh the most?",
-        options: { a: "Serious people", b: "The mirror", c: "Siddhant", d: "Movies" },
+        question: "Which is swagu’s favorite word?",
+        options: { a: "Coco Jumbo", b: "Jine Mosto", c: "Yaari Dosti", d: "Main hoon" },
         correct: "c"
     },
     {
-        question: "Which is your superpower?",
-        options: { a: "Flying", b: "Your spirit", c: "Money", d: "Fame" },
+        question: "On which item has swagu spent a fortune?",
+        options: { a: "Sotret", b: "Coffee", c: "Sarojni", d: "Dolls" },
+        correct: "a"
+    },
+    {
+        question: "What is swagu’s favorite with dosa/idli(all made by sumathi aunty)",
+        options: { a: "Kothamalli", b: "Mala pudi", c: "Sambhar", d: "Coconut chutney" },
+        correct: "a"
+    },
+    {
+        question: "Which is swagu’s fav type of jine?",
+        options: { a: "Coco jine", b: "Jumbo jine", c: "Jine mosto", d: "Kundi kule jine" },
         correct: "b"
     },
     {
-        question: "What drives you forward?",
-        options: { a: "Fear", b: "Dreams", c: "Others' opinions", d: "Nothing" },
+        question: "Which is swagu’s favorite exercise?",
+        options: { a: "Push ups", b: "Pull ups", c: "Splits", d: "Handstand" },
         correct: "b"
     },
     {
-        question: "Who do you trust the most?",
-        options: { a: "Strangers", b: "Your family", c: "Nobody", d: "Social media" },
-        correct: "b"
-    },
-    {
-        question: "Your biggest quality is?",
-        options: { a: "Laziness", b: "Your strength", c: "Your looks", d: "Your luck" },
-        correct: "b"
-    },
-    {
-        question: "What makes home special?",
-        options: { a: "The building", b: "The location", c: "The people", d: "The furniture" },
-        correct: "c"
-    },
-    {
-        question: "Your best moment is?",
-        options: { a: "When alone", b: "When with family", c: "When famous", d: "When sleeping" },
-        correct: "b"
-    },
-    {
-        question: "Life lesson you learned?",
-        options: { a: "Money is everything", b: "Love matters most", c: "Trust no one", d: "Nothing matters" },
-        correct: "b"
+        question: "who is your favorite sibling?",
+        options: { a: "Siddhu", b: "Ashwin", c: "Kashy", d: "Nandini" },
+        correct: "a"
     }
 ];
 
@@ -181,6 +181,13 @@ function loadQuizQuestion(){
         document.getElementById("option-c").innerText = currentQ.options.c;
         document.getElementById("option-d").innerText = currentQ.options.d;
         
+        // Check if this is the audio question (question index 3)
+        if(currentQuestionIndex === 3){
+            setupAudioQuestion();
+        } else {
+            removeAudioListeners();
+        }
+        
         questionElement.classList.add("quiz-question-animated");
         quizContent.style.animation = "none";
         setTimeout(() => {
@@ -193,6 +200,80 @@ function loadQuizQuestion(){
     const result = document.getElementById("quiz-result");
     result.innerHTML = '';
 }
+
+let quizAudioManager = {
+    currentAudio: null
+};
+
+function setupAudioQuestion(){
+    // Audio sounds for clash royale question
+    const audioSounds = {
+        a: "assets/music/Clash Royale Bowler Sounds.mp3",
+        b: "assets/music/Clash Royale old King Sounds.mp3",
+        c: "assets/music/CLASH ROYALE ELECTRO WIZARD SOUNDS.mp3",
+        d: "assets/music/Hog rider sound.mp3"
+    };
+    
+    const buttons = document.querySelectorAll(".quiz-btn");
+    buttons.forEach((btn, index) => {
+        const optionKey = String.fromCharCode(97 + index); // 'a', 'b', 'c', 'd'
+        const soundUrl = audioSounds[optionKey];
+        
+        // Update button styling
+        btn.style.background = "linear-gradient(135deg, rgba(100,200,255,.9), rgba(100,150,255,.85))";
+        btn.style.boxShadow = "0 8px 20px rgba(100,200,255,.25)";
+        
+        // Play sound on hover and stop any previous audio
+        btn.audioListener = () => {
+            // Stop any currently playing audio
+            if(quizAudioManager.currentAudio){
+                quizAudioManager.currentAudio.pause();
+                quizAudioManager.currentAudio.currentTime = 0;
+            }
+            // Play new audio
+            quizAudioManager.currentAudio = new Audio(soundUrl);
+            quizAudioManager.currentAudio.play();
+        };
+        
+        // Stop sound when mouse leaves button
+        btn.audioLeaveListener = () => {
+            if(quizAudioManager.currentAudio){
+                quizAudioManager.currentAudio.pause();
+                quizAudioManager.currentAudio.currentTime = 0;
+                quizAudioManager.currentAudio = null;
+            }
+        };
+        
+        btn.addEventListener("mouseenter", btn.audioListener);
+        btn.addEventListener("mouseleave", btn.audioLeaveListener);
+    });
+}
+
+function removeAudioListeners(){
+    // Stop any playing audio
+    if(quizAudioManager.currentAudio){
+        quizAudioManager.currentAudio.pause();
+        quizAudioManager.currentAudio.currentTime = 0;
+        quizAudioManager.currentAudio = null;
+    }
+    
+    const buttons = document.querySelectorAll(".quiz-btn");
+    buttons.forEach(btn => {
+        if(btn.audioListener){
+            btn.removeEventListener("mouseenter", btn.audioListener);
+            btn.audioListener = null;
+        }
+        if(btn.audioLeaveListener){
+            btn.removeEventListener("mouseleave", btn.audioLeaveListener);
+            btn.audioLeaveListener = null;
+        }
+        // Reset button styling
+        btn.style.background = "";
+        btn.style.boxShadow = "";
+    });
+}
+
+
 
 function disableQuizButtons(){
     const buttons = document.querySelectorAll(".quiz-btn");
@@ -1350,27 +1431,82 @@ function launchAwardConfetti(){
    TROPHY SPARKLES
 ===================================== */
 
+let trophySparkleInterval = null;
+let sparkleTimeoutId = null;
+
 function createTrophySparkles(){
 
-    const trophy =
-    document.querySelector(
-        ".award-trophy"
-    );
+    const activeScene = 
+    document.querySelector(".scene.active");
+    
+    const currentSceneId = 
+    activeScene ? activeScene.id : "scene1";
 
-    if(!trophy) return;
+    // Clear any existing intervals and timeouts
+    if(trophySparkleInterval){
+        clearInterval(trophySparkleInterval);
+        trophySparkleInterval = null;
+    }
 
-    setInterval(()=>{
+    if(sparkleTimeoutId){
+        clearTimeout(sparkleTimeoutId);
+        sparkleTimeoutId = null;
+    }
 
-        const sparkle =
-        document.createElement(
-            "div"
+    // On home page (scene1), keep sparkles forever
+    if(currentSceneId === "scene1"){
+
+        trophySparkleInterval = 
+        setInterval(()=>{
+
+            createSparkleElement("center");
+
+        },500);
+
+    }
+    // On scene7 (award), show sparkles for 8 seconds only
+    else if(currentSceneId === "scene7"){
+
+        trophySparkleInterval = 
+        setInterval(()=>{
+
+            createSparkleElement("trophy");
+
+        },500);
+
+        // Stop creating sparkles after 8 seconds
+        sparkleTimeoutId = 
+        setTimeout(()=>{
+
+            if(trophySparkleInterval){
+                clearInterval(trophySparkleInterval);
+                trophySparkleInterval = null;
+            }
+
+        },8000);
+
+    }
+
+}
+
+function createSparkleElement(position){
+
+    const sparkle =
+    document.createElement("div");
+
+    sparkle.className =
+    "trophy-sparkle";
+
+    sparkle.innerHTML = "✨";
+
+    if(position === "trophy"){
+
+        const trophy =
+        document.querySelector(
+            ".award-trophy"
         );
 
-        sparkle.className =
-        "trophy-sparkle";
-
-        sparkle.innerHTML =
-        "✨";
+        if(!trophy) return;
 
         const rect =
         trophy.getBoundingClientRect();
@@ -1387,17 +1523,27 @@ function createTrophySparkles(){
             Math.random()*rect.height
         ) + "px";
 
-        document.body.appendChild(
-            sparkle
-        );
+    } else if(position === "center"){
 
-        setTimeout(()=>{
+        // Sparkles float around the center
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
 
-            sparkle.remove();
+        sparkle.style.left =
+        (centerX + (Math.random()-0.5)*200) + "px";
 
-        },2000);
+        sparkle.style.top =
+        (centerY + (Math.random()-0.5)*200) + "px";
 
-    },500);
+    }
+
+    document.body.appendChild(sparkle);
+
+    setTimeout(()=>{
+
+        sparkle.remove();
+
+    },2000);
 
 }
 
@@ -1409,3 +1555,17 @@ document.addEventListener(
     "DOMContentLoaded",
     createTrophySparkles
 );
+
+// Reinitialize sparkles when scene changes
+const originalGoToScene = goToScene;
+
+goToScene = function(nextScene){
+
+    originalGoToScene(nextScene);
+    
+    // Reinitialize trophy sparkles for the new scene
+    setTimeout(()=>{
+        createTrophySparkles();
+    },500);
+
+};
