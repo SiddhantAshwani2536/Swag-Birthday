@@ -912,27 +912,74 @@
 
         <h1>Letters From Home 💌</h1>
 
-        <div class="letters">
+        <div class="envelopes-container">
 
-            <div class="letter" onclick="openLetter('Mom')">
-    Mom
-</div>
-            <div class="letter" onclick="openLetter('Brother')">
-    Brother
-</div>
-            <div class="letter" onclick="openLetter('Husband')">
-    Husband
-</div>
-            <div class="letter" onclick="openLetter('Friend')">
-    Friend
-</div>
-            <div class="letter" onclick="openLetter('Friend')">
-    Friend
-</div>
-            <div class="letter" onclick="openLetter('Friend')">
-    Friend
-</div>
+            <div class="envelope" onclick="openLetterPopup(event, 'Amma')">
+                <div class="envelope-front">
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-body">
+                        <p class="envelope-name">Amma</p>
+                    </div>
+                </div>
+            </div>
 
+            <div class="envelope" onclick="openLetterPopup(event, 'Appa')">
+                <div class="envelope-front">
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-body">
+                        <p class="envelope-name">Appa</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="envelope" onclick="openLetterPopup(event, 'Vijaya Patti')">
+                <div class="envelope-front">
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-body">
+                        <p class="envelope-name">Vijaya Patti</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="envelope" onclick="openLetterPopup(event, 'Siddhu')">
+                <div class="envelope-front">
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-body">
+                        <p class="envelope-name">Siddhu</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="envelope" onclick="openLetterPopup(event, 'Kashy')">
+                <div class="envelope-front">
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-body">
+                        <p class="envelope-name">Kashy</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="envelope" onclick="openLetterPopup(event, 'Friend')">
+                <div class="envelope-front">
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-body">
+                        <p class="envelope-name">Friend</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="letterPopup" class="letter-popup hidden">
+            <div class="letter-card">
+                <button class="close-letter-btn" onclick="closeLetter()">✕</button>
+                <div class="letter-header">
+                    <h2 id="letterFrom">From Amma</h2>
+                </div>
+                <div class="letter-content">
+                    <p id="letterMessage"></p>
+                </div>
+            </div>
         </div>
 
         <button onclick="goToScene(9)">
@@ -957,16 +1004,66 @@
 
         <h1>Video Messages 🎥</h1>
 
-        <div class="video-grid">
+        <div class="video-messages-grid">
 
-            <video controls>
-                <source src="assets/videos/video1.mp4">
-            </video>
+            <!-- ROW 1: Siddhu, Kashy, Amma -->
+            <div class="video-card" onclick="playVideoMessage(event, 'Siddhu', 'assets/videos/siddhu.mp4')">
+                <div class="video-thumbnail">
+                    <div class="play-button">▶</div>
+                </div>
+                <p class="video-name">Siddhu</p>
+            </div>
 
-            <video controls>
-                <source src="assets/videos/video2.mp4">
-            </video>
+            <div class="video-card" onclick="playVideoMessage(event, 'Kashy', 'assets/videos/Kashybro.mp4')">
+                <div class="video-thumbnail">
+                    <div class="play-button">▶</div>
+                </div>
+                <p class="video-name">Kashy</p>
+            </div>
 
+            <div class="video-card" onclick="playVideoMessage(event, 'Amma', 'assets/videos/amma.mp4')">
+                <div class="video-thumbnail">
+                    <div class="play-button">▶</div>
+                </div>
+                <p class="video-name">Amma</p>
+            </div>
+
+            <!-- ROW 2: Appa, Vijaya Patti -->
+            <div class="video-card" onclick="playVideoMessage(event, 'Appa', 'assets/videos/Appa.mp4')">
+                <div class="video-thumbnail">
+                    <div class="play-button">▶</div>
+                </div>
+                <p class="video-name">Appa</p>
+            </div>
+
+            <div class="video-card" onclick="playVideoMessage(event, 'Vijaya Patti', 'assets/videos/VijayaPatti.mp4')">
+                <div class="video-thumbnail">
+                    <div class="play-button">▶</div>
+                </div>
+                <p class="video-name">Vijaya Patti</p>
+            </div>
+
+            <!-- ROW 3: Special Surprise -->
+            <div class="video-card special-surprise" onclick="playVideoMessage(event, 'Special Surprise', 'assets/videos/MarkThatha.mp4')">
+                <div class="video-thumbnail">
+                    <div class="play-button">▶</div>
+                </div>
+                <p class="video-name">✨ Special Surprise ✨</p>
+            </div>
+
+        </div>
+
+        <!-- VIDEO PLAYER POPUP -->
+        <div id="videoPlayerPopup" class="video-player-popup hidden">
+            <div class="video-player-card">
+                <button class="close-video-btn" onclick="closeVideoMessage()">✕</button>
+                <h2 id="videoPlayerTitle">Message from Someone</h2>
+                <div class="video-player-container">
+                    <video id="videoPlayer" controls>
+                        <source id="videoSource" src="">
+                    </video>
+                </div>
+            </div>
         </div>
 
         <button onclick="goToScene(10)">

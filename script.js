@@ -84,6 +84,7 @@ const quizQuestions = [
 ];
 
 let currentQuestionIndex = 0;
+let quizScore = 0;
 
 function quizAnswer(selectedOption){
 
@@ -91,6 +92,8 @@ function quizAnswer(selectedOption){
     const correct = quizQuestions[currentQuestionIndex].correct;
 
     if(selectedOption === correct){
+        quizScore++; // Increment score for correct answer
+        
         if(currentQuestionIndex < quizQuestions.length - 1){
             result.innerHTML =
             `
@@ -109,22 +112,9 @@ function quizAnswer(selectedOption){
                 enableQuizButtons();
             }, 1200);
         } else {
-            result.innerHTML =
-            `
-            <div class="quiz-completion">
-                🎉 CONGRATULATIONS!<br>
-                <span>You've won the Crorepati! 💕</span>
-                <br><br>
-                <span class="loading-dots">Preparing your prize</span>
-            </div>
-            `;
-
+            // Show results screen instead of auto-advancing
             disableQuizButtons();
-
-            setTimeout(() => {
-                currentQuestionIndex = 0;
-                goToScene(4);
-            }, 3000);
+            showQuizResults();
         }
     } else {
         result.innerHTML =
@@ -144,14 +134,83 @@ function quizAnswer(selectedOption){
                 loadQuizQuestion();
                 enableQuizButtons();
             } else {
-                result.innerHTML = `<div class="quiz-completion">But you made it here! 💕</div>`;
-                setTimeout(() => {
-                    currentQuestionIndex = 0;
-                    goToScene(4);
-                }, 2000);
+                // Show results screen instead of auto-advancing
+                showQuizResults();
             }
         }, 1200);
     }
+}
+
+function showQuizResults(){
+    const quizBox = document.querySelector(".quiz-box");
+    const result = document.getElementById("quiz-result");
+    
+    // Hide the quiz box and show results
+    quizBox.style.display = "none";
+    
+    const percentage = Math.round((quizScore / quizQuestions.length) * 100);
+    
+    result.innerHTML = `
+        <div class="quiz-results-screen">
+            <h2>Quiz Complete! 🎉</h2>
+            
+            <div class="score-display">
+                <div class="score-circle">
+                    <span class="score-number">${quizScore}</span>
+                    <span class="score-total">/${quizQuestions.length}</span>
+                </div>
+                <p class="score-percentage">${percentage}% Score</p>
+            </div>
+            
+            <div class="score-message">
+                ${getScoreMessage(percentage)}
+            </div>
+            
+            <div class="quiz-results-buttons">
+                <button class="quiz-results-btn retake-btn" onclick="restartQuizScene3()">
+                    🔄 Take Quiz Again
+                </button>
+                <button class="quiz-results-btn continue-btn" onclick="continueFromQuiz()">
+                    Continue Journey →
+                </button>
+            </div>
+        </div>
+    `;
+}
+
+function getScoreMessage(percentage){
+    if(percentage === 100){
+        return "<p>Perfect Score! You're a true family expert! 💯</p>";
+    } else if(percentage >= 80){
+        return "<p>Excellent! You know your family so well! 🌟</p>";
+    } else if(percentage >= 60){
+        return "<p>Good job! You know quite a bit about your family! 👍</p>";
+    } else if(percentage >= 40){
+        return "<p>Not bad! Time to learn more about your family! 📚</p>";
+    } else {
+        return "<p>Keep learning! Every family member is unique! ❤️</p>";
+    }
+}
+
+function restartQuizScene3(){
+    currentQuestionIndex = 0;
+    quizScore = 0;
+    
+    const quizBox = document.querySelector(".quiz-box");
+    const result = document.getElementById("quiz-result");
+    
+    quizBox.style.display = "block";
+    result.innerHTML = '';
+    
+    updateProgressBar();
+    loadQuizQuestion();
+    enableQuizButtons();
+}
+
+function continueFromQuiz(){
+    currentQuestionIndex = 0;
+    quizScore = 0;
+    goToScene(4);
 }
 
 function updateProgressBar(){
@@ -742,6 +801,61 @@ function openLetter(name){
     alert("Placeholder message from " + name + ". Replace later with real message.");
 }
 
+/* =====================================
+   LETTERS FROM HOME
+===================================== */
+
+let letterOpen = false;
+
+const letterMessages = {
+    "Amma": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    "Appa": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores.",
+    "Vijaya Patti": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+    "Siddhu": "Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omni dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae.",
+    "Kashy": "Nulla facilisi. Cras non velit nec insultus est quis augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a erat non purus dignissim dignissim. Cras sed nunc vel metus porttitor condimentum. Sed nec nunc vel felis hendrerit dignissim. Cras sed nunc vel metus porttitor condimentum et dignissim.",
+    "Friend": "Vivamus suscipit lorem at urna condimentum, sed pellentesque nunc pellentesque. Suspendisse potenti. Aenean vestibulum eros quis semper lobortis. Cras sed nunc vel metus porttitor condimentum. Sed nec nunc vel felis hendrerit dignissim. In pellentesque augue quis venenatis consectetur. Sed dignissim, ante in elementum dictumst."
+};
+
+function openLetterPopup(event, name){
+    // Prevent event from bubbling
+    event.stopPropagation();
+    
+    // Check if a letter is already open
+    if(letterOpen) return;
+    
+    letterOpen = true;
+    
+    // Set the letter content
+    document.getElementById("letterFrom").innerText = `From ${name}`;
+    document.getElementById("letterMessage").innerText = letterMessages[name];
+    
+    // Show the popup
+    const popup = document.getElementById("letterPopup");
+    popup.classList.remove("hidden");
+}
+
+function closeLetter(){
+    letterOpen = false;
+    
+    const popup = document.getElementById("letterPopup");
+    popup.classList.add("hidden");
+}
+
+// Close letter when clicking outside
+document.addEventListener("click", function(event){
+    const popup = document.getElementById("letterPopup");
+    const letterCard = document.querySelector(".letter-card");
+    
+    if(
+        popup && 
+        !popup.classList.contains("hidden") &&
+        !letterCard.contains(event.target) &&
+        !event.target.closest(".envelope")
+    ){
+        closeLetter();
+    }
+});
+
 // Initialize first quiz question
 function initializeQuiz(){
     const currentQ = quizQuestions[0];
@@ -764,6 +878,75 @@ if(document.readyState === 'loading'){
 } else {
     initializeAll();
 }
+
+/* =====================================
+   VIDEO MESSAGES (SCENE 9)
+===================================== */
+
+let videoPlaying = false;
+
+function playVideoMessage(event, personName, videoPath){
+    // Prevent event from bubbling
+    event.stopPropagation();
+    
+    // Check if a video is already playing
+    if(videoPlaying) return;
+    
+    videoPlaying = true;
+    
+    // Set the video player content
+    document.getElementById("videoPlayerTitle").innerText = `Message from ${personName}`;
+    document.getElementById("videoSource").src = videoPath;
+    
+    // Show the popup
+    const popup = document.getElementById("videoPlayerPopup");
+    popup.classList.remove("hidden");
+    
+    // Reload the video element to apply the new source
+    const videoPlayer = document.getElementById("videoPlayer");
+    videoPlayer.load();
+    videoPlayer.play();
+}
+
+function closeVideoMessage(){
+    videoPlaying = false;
+    
+    const popup = document.getElementById("videoPlayerPopup");
+    const videoPlayer = document.getElementById("videoPlayer");
+    
+    // Pause and stop the video
+    videoPlayer.pause();
+    videoPlayer.currentTime = 0;
+    
+    // Hide the popup
+    popup.classList.add("hidden");
+}
+
+// Close video when clicking outside
+document.addEventListener("click", function(event){
+    const popup = document.getElementById("videoPlayerPopup");
+    const playerCard = document.querySelector(".video-player-card");
+    
+    if(
+        popup && 
+        !popup.classList.contains("hidden") &&
+        !playerCard.contains(event.target) &&
+        !event.target.closest(".video-card")
+    ){
+        closeVideoMessage();
+    }
+});
+
+// Close video when pressing Escape
+document.addEventListener("keydown", function(event){
+    if(event.key === "Escape"){
+        const popup = document.getElementById("videoPlayerPopup");
+        if(popup && !popup.classList.contains("hidden")){
+            closeVideoMessage();
+        }
+    }
+});
+
 /* =====================================
    DANCE OF A THOUSAND MOMENTS
 ===================================== */
