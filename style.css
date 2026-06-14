@@ -618,7 +618,7 @@ button{
 .option-text{
     position:relative;
     z-index:1;
-    font-size:13px;
+    font-size:20px;
     word-wrap:break-word;
     max-width:100%;
 }
@@ -4474,7 +4474,7 @@ video{
     }
 
     #quiz-question{
-        font-size:18px;
+        font-size:39px;
         margin-bottom:20px;
     }
 
