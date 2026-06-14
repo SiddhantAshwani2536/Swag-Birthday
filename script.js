@@ -990,14 +990,14 @@ const letterMessages = {
 
 
 
-    "Vijaya Patti":
-    `My dear Swagu,
-
-    May your life always be filled with blessings, laughter, good health, and happiness.
-
-    Whenever I think of you, I remember your smile and the joy you bring to everyone around you.
-
-    Stay humble, stay kind, and always keep your heart pure.`,
+    "Sumathy Aunty":
+    `Swagata, happy birthday ⭐! 
+    
+    You are a very good girl, a calm girl, a patient girl—there is no one raised like you. 
+    
+    I miss you a lot. You must stay well for many years—that is my blessing for you. 
+    
+    Thank you very much.`,
 
 
 
@@ -1045,7 +1045,39 @@ const letterMessages = {
     positivity that makes everyone love you. Have the best birthday ever—you deserve it! 🥹🎂
 
 
-    Love you always 🫶`
+    Love you always 🫶`,
+
+
+    "Uma Didi":
+    `Happy Birthday! 💕✨
+
+    The future belongs to those who believe in the beauty of their dreams, 
+    
+    and I see you living this quote every day. I greatly admire your determination, 
+    
+    hard work, and unwavering belief in yourself, which have helped you grow into an accomplished 
+    
+    and inspiring young woman. I am so proud of all that you have achieved, both personally and professionally, 
+    
+    and I know even greater things lie ahead. Wishing you a very Happy Birthday filled with happiness, success, 
+    
+    and endless opportunities to keep pursuing your dreams and making your mark on the world 🫶. `,
+
+
+
+    "Bala Patti":
+    `I am so proud of you. 😊 
+    
+    You have always been a calm, patient, and kind-hearted child, and I pray that life continues 
+    
+    to bless you with happiness and success. 🌸
+
+    Live a long, beautiful life, and remember that wherever I am, I will always be watching over you. 🤍 
+    
+    My blessings and love will forever be with you. 🙏✨
+
+    Take care, dear. ❤️🌷`
+
 };
 
 
@@ -1054,10 +1086,12 @@ const senderEmojis = {
 
     "Amma":"❤️",
     "Appa":"⭐",
-    "Vijaya Patti":"🌸",
+    "Sumathy Aunty":"🌸",
     "Siddhu":"😎",
     "Kashy":"🤝",
-    "Bestie":"🫶"
+    "Bestie":"🫶",
+    "Bala Patti":"💐",
+    "Uma Didi":"🌷"
 
 };
 
@@ -1133,8 +1167,6 @@ document.addEventListener("click", function(event){
     }
 
 });
-
-
 
 /* =====================================
    ESC KEY SUPPORT

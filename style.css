@@ -5313,3 +5313,19 @@ video{
 
     display:none !important;
 }
+
+#scene8{
+    overflow-y:auto !important;
+    align-items:flex-start !important;
+    padding-top:80px !important;
+    padding-bottom:150px !important;
+}
+
+.envelopes-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:50px;
+    max-width:1300px;
+    margin:50px auto 0;
+}
