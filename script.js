@@ -2081,4 +2081,7 @@ goToScene = function(nextScene, fromHistory = false){
     },500);
 
 };
-
+document.addEventListener("DOMContentLoaded", () => {
+    loadQuizQuestion();
+    updateProgressBar();
+});
