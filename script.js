@@ -524,7 +524,7 @@ why:"Your choices reveal curiosity and a desire to grow."
 husky:{
 name:"Siberian Husky",
 title:"Adventurous & Independent",
-image:"https://placedog.net/500?id=208",
+image:"https://images.unsplash.com/photo-1633722715463-d30f4f325e24?w=800",
 description:"Freedom and exploration excite you.",
 why:"You embrace challenges and enjoy discovering new experiences."
 },
@@ -532,7 +532,7 @@ why:"You embrace challenges and enjoy discovering new experiences."
 beagle:{
 name:"Beagle",
 title:"Cheerful & Optimistic",
-image:"https://placedog.net/500?id=302",
+image:"https://images.unsplash.com/photo-1633722715463-d30f4f325e24?w=800",
 description:"Your positivity brightens every room.",
 why:"You naturally focus on joy and happiness."
 },
@@ -540,7 +540,7 @@ why:"You naturally focus on joy and happiness."
 poodle:{
 name:"Poodle",
 title:"Creative & Elegant",
-image:"https://placedog.net/500?id=401",
+image:"https://images.unsplash.com/photo-1633722715463-d30f4f325e24?w=800",
 description:"Creative, expressive and thoughtful.",
 why:"You appreciate beauty, originality and self-expression."
 },
@@ -548,7 +548,7 @@ why:"You appreciate beauty, originality and self-expression."
 shiba:{
 name:"Shiba Inu",
 title:"Confident & Self-Reliant",
-image:"https://placedog.net/500?id=501",
+image:"https://images.unsplash.com/photo-1633722715463-d30f4f325e24?w=800",
 description:"Independent and confident.",
 why:"You trust yourself and enjoy forging your own path."
 },
@@ -556,7 +556,7 @@ why:"You trust yourself and enjoy forging your own path."
 corgi:{
 name:"Corgi",
 title:"Fun & Playful",
-image:"https://placedog.net/500?id=601",
+image:"https://images.unsplash.com/photo-1633722715463-d30f4f325e24?w=800",
 description:"Playful, energetic and lovable.",
 why:"You bring smiles and laughter wherever you go."
 },
@@ -564,7 +564,7 @@ why:"You bring smiles and laughter wherever you go."
 saint:{
 name:"Saint Bernard",
 title:"Caring & Supportive",
-image:"https://placedog.net/500?id=701",
+image:"https://images.unsplash.com/photo-1633722715463-d30f4f325e24?w=800",
 description:"Deeply caring and compassionate.",
 why:"You often place the needs of loved ones before your own."
 },
@@ -572,7 +572,7 @@ why:"You often place the needs of loved ones before your own."
 aussie:{
 name:"Australian Shepherd",
 title:"Hardworking & Energetic",
-image:"https://placedog.net/500?id=801",
+image:"https://images.unsplash.com/photo-1633722715463-d30f4f325e24?w=800",
 description:"Driven and goal-oriented.",
 why:"You enjoy challenges and achieving meaningful goals."
 },
@@ -580,7 +580,7 @@ why:"You enjoy challenges and achieving meaningful goals."
 samoyed:{
 name:"Samoyed",
 title:"Positive & Uplifting",
-image:"https://placedog.net/500?id=901",
+image:"https://images.unsplash.com/photo-1633722715463-d30f4f325e24?w=800",
 description:"A source of encouragement and joy.",
 why:"You inspire optimism in others."
 }
@@ -939,7 +939,6 @@ function startPuppyQuiz(){
 function openLetter(name){
     alert("Placeholder message from " + name + ". Replace later with real message.");
 }
-
 /* =====================================
    LETTERS FROM HOME
 ===================================== */
@@ -947,77 +946,215 @@ function openLetter(name){
 let letterOpen = false;
 
 const letterMessages = {
-    "Amma": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    "Appa": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores.",
-    "Vijaya Patti": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
-    "Siddhu": "Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omni dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae.",
-    "Kashy": "Nulla facilisi. Cras non velit nec insultus est quis augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a erat non purus dignissim dignissim. Cras sed nunc vel metus porttitor condimentum. Sed nec nunc vel felis hendrerit dignissim. Cras sed nunc vel metus porttitor condimentum et dignissim.",
-    "Friend": "Vivamus suscipit lorem at urna condimentum, sed pellentesque nunc pellentesque. Suspendisse potenti. Aenean vestibulum eros quis semper lobortis. Cras sed nunc vel metus porttitor condimentum. Sed nec nunc vel felis hendrerit dignissim. In pellentesque augue quis venenatis consectetur. Sed dignissim, ante in elementum dictumst."
+
+    "Amma":
+    `Dear Swagu, 
+    
+    I am so incredibly proud of you. 
+    
+    While the world sees your awards and accomplishments, 
+    
+    I know the real story: the grit, late nights, and sheer determination it took to get here. 
+    
+    I have no doubt you'll achieve every dream you set your mind to, 
+    
+    because I've seen firsthand how you leave no stone unturned 💖.`,
+
+
+    "Appa":
+    `This is for my darling & adorable daughter. 
+    
+    When  you came in my life, this was the best thing that happened. 
+    
+    I have and will always  wish you the best in your life.
+    
+    I know that  you always are affectionate and caring. 
+    
+    The day you went to Manipal and now in US, I could feel the vacuum in our house 
+    
+    and in my mind that some part of my body is separated, but got used to it. 
+    
+    You have grown up as matured and responsible. I cherish that you should be with us, 
+    
+    so that I can always see and talk to you.
+    
+    You are closest to my heart and I know you also reciprocate the love, kindness and warmth towards me.
+    
+    You seldom show your expression, but I know your nature and sensitivity towards your family.
+    
+    You are gritty person and soft within. As you complete 32 years, I still see you as my adorable child 
+    
+    and the memories of your childhood are etched permanently in my mind.
+    
+    I wish you the best and happiest moments forever. ⭐`,
+
+
+
+    "Vijaya Patti":
+    `My dear Swagu,
+
+    May your life always be filled with blessings, laughter, good health, and happiness.
+
+    Whenever I think of you, I remember your smile and the joy you bring to everyone around you.
+
+    Stay humble, stay kind, and always keep your heart pure.`,
+
+
+
+    "Siddhu":
+    `Happy Birthday, dawg ❤️
+    
+    They say the bond between siblings is one of the longest relationships we'll ever have, 
+    
+    and I'm incredibly grateful that I get to share mine with the most amazing sister. 
+    
+    We've grown through every phase of life together, and with every year, our bond only gets stronger. 
+    
+    I'll always be there for you and will forever be your biggest cheerleader 😎.`,
+
+
+
+    "Kashy":
+    `Happy Birthday Swaggy ✨,
+    
+    This is the first birthday we are celebrating away. 
+    
+    While I am a bit upset about not being there, I am also grateful for the friends 
+    
+    that are going to be there with you to make it a memorable day. 
+    
+    I miss you a lot. I am very proud of you for how you conduct yourself in tough situations and 
+    
+    built up a strong work ethic, which is what will take you forward. 
+    
+    May this year bring all the goals you have to life, and make you very happy. 
+    
+    Keep scaling new heights and always do it with a smile. ✨`,
+
+
+
+    "Bestie":
+    `Happy Birthday lil gurl! 💕✨
+
+    I honestly hope this year brings you everything you've been wishing for and so much more. 
+    
+    You're such a lovely person to be around, and I'm really grateful to know you. 
+    
+    Keep being your amazing self, keep smiling, and keep spreading the same warmth and 
+    
+    positivity that makes everyone love you. Have the best birthday ever—you deserve it! 🥹🎂
+
+
+    Love you always 🫶`
 };
 
+
+
+const senderEmojis = {
+
+    "Amma":"❤️",
+    "Appa":"⭐",
+    "Vijaya Patti":"🌸",
+    "Siddhu":"😎",
+    "Kashy":"🤝",
+    "Bestie":"🫶"
+
+};
+
+
+
 function openLetterPopup(event, name){
-    // Prevent event from bubbling
+
     event.stopPropagation();
-    
-    // Check if a letter is already open
+
     if(letterOpen) return;
-    
+
     letterOpen = true;
-    
-    // Set the letter content
-    document.getElementById("letterFrom").innerText = `From ${name}`;
-    document.getElementById("letterMessage").innerText = letterMessages[name];
-    
-    // Show the popup
-    const popup = document.getElementById("letterPopup");
+
+    document.getElementById("letterFrom").innerText =
+        `From ${name}`;
+
+    document.getElementById("letterMessage").innerText =
+        letterMessages[name];
+
+    document.getElementById("senderEmoji").innerHTML =
+        senderEmojis[name] || "💌";
+
+    const popup =
+        document.getElementById("letterPopup");
+
     popup.classList.remove("hidden");
+
+    document.body.style.overflow = "hidden";
+
 }
+
+
 
 function closeLetter(){
+
     letterOpen = false;
-    
-    const popup = document.getElementById("letterPopup");
+
+    const popup =
+        document.getElementById("letterPopup");
+
     popup.classList.add("hidden");
+
+    document.body.style.overflow = "auto";
+
 }
 
-// Close letter when clicking outside
+
+
+/* =====================================
+   CLOSE LETTER WHEN CLICKING OUTSIDE
+===================================== */
+
 document.addEventListener("click", function(event){
-    const popup = document.getElementById("letterPopup");
-    const letterCard = document.querySelector(".letter-card");
-    
+
+    const popup =
+        document.getElementById("letterPopup");
+
+    const letterPaper =
+        document.querySelector(".letter-paper");
+
     if(
-        popup && 
+
+        popup &&
         !popup.classList.contains("hidden") &&
-        !letterCard.contains(event.target) &&
+        letterPaper &&
+        !letterPaper.contains(event.target) &&
         !event.target.closest(".envelope")
+
     ){
+
         closeLetter();
+
     }
+
 });
 
-// Initialize first quiz question
-function initializeQuiz(){
-    const currentQ = quizQuestions[0];
-    document.getElementById("quiz-question").innerText = "Question: " + currentQ.question;
-    document.getElementById("option-a").innerText = currentQ.options.a;
-    document.getElementById("option-b").innerText = currentQ.options.b;
-    document.getElementById("option-c").innerText = currentQ.options.c;
-    document.getElementById("option-d").innerText = currentQ.options.d;
-    updateProgressBar();
-}
 
-function initializeAll(){
-    initializeQuiz();
-    initializePuppyQuiz();
-    initializeMemoryImagePopup();
-}
 
-// Initialize when DOM is ready
-if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', initializeAll);
-} else {
-    initializeAll();
-}
+/* =====================================
+   ESC KEY SUPPORT
+===================================== */
+
+document.addEventListener("keydown", function(e){
+
+    if(
+        e.key === "Escape" &&
+        letterOpen
+    ){
+
+        closeLetter();
+
+    }
+
+});
+
+
+
 
 /* =====================================
    VIDEO MESSAGES (SCENE 9)
@@ -1086,6 +1223,7 @@ document.addEventListener("keydown", function(event){
         }
     }
 });
+
 
 /* =====================================
    DANCE OF A THOUSAND MOMENTS
@@ -1911,3 +2049,4 @@ goToScene = function(nextScene, fromHistory = false){
     },500);
 
 };
+

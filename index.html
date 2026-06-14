@@ -913,78 +913,215 @@
 <!-- SCENE 8 -->
 <section class="scene" id="scene8">
 
+    <div class="letter-stars">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
     <div class="content">
 
-        <h1>Letters From Home 💌</h1>
+        <h1 class="letters-title">
+            Letters From Home 💌
+        </h1>
+
+        <p class="letters-subtitle">
+            Some words travel farther than distance.
+            Open each letter and feel the love waiting inside.
+        </p>
 
         <div class="envelopes-container">
 
-            <div class="envelope" onclick="openLetterPopup(event, 'Amma')">
+            <!-- Amma -->
+            <div class="envelope" onclick="openLetterPopup(event,'Amma')">
+
+                <div class="wax-seal">❤️</div>
+
                 <div class="envelope-front">
+
                     <div class="envelope-flap"></div>
+
                     <div class="envelope-body">
-                        <p class="envelope-name">Amma</p>
+
+                        <p class="envelope-name">
+                            Amma
+                        </p>
+
                     </div>
+
                 </div>
+
             </div>
 
-            <div class="envelope" onclick="openLetterPopup(event, 'Appa')">
+            <!-- Appa -->
+            <div class="envelope" onclick="openLetterPopup(event,'Appa')">
+
+                <div class="wax-seal">⭐</div>
+
                 <div class="envelope-front">
+
                     <div class="envelope-flap"></div>
+
                     <div class="envelope-body">
-                        <p class="envelope-name">Appa</p>
+
+                        <p class="envelope-name">
+                            Appa
+                        </p>
+
                     </div>
+
                 </div>
+
             </div>
 
-            <div class="envelope" onclick="openLetterPopup(event, 'Vijaya Patti')">
+            <!-- Vijaya Patti -->
+            <div class="envelope" onclick="openLetterPopup(event,'Vijaya Patti')">
+
+                <div class="wax-seal">🌸</div>
+
                 <div class="envelope-front">
+
                     <div class="envelope-flap"></div>
+
                     <div class="envelope-body">
-                        <p class="envelope-name">Vijaya Patti</p>
+
+                        <p class="envelope-name">
+                            Vijaya Patti
+                        </p>
+
                     </div>
+
                 </div>
+
             </div>
 
-            <div class="envelope" onclick="openLetterPopup(event, 'Siddhu')">
+            <!-- Siddhu -->
+            <div class="envelope" onclick="openLetterPopup(event,'Siddhu')">
+
+                <div class="wax-seal">😎</div>
+
                 <div class="envelope-front">
+
                     <div class="envelope-flap"></div>
+
                     <div class="envelope-body">
-                        <p class="envelope-name">Siddhu</p>
+
+                        <p class="envelope-name">
+                            Siddhu
+                        </p>
+
                     </div>
+
                 </div>
+
             </div>
 
-            <div class="envelope" onclick="openLetterPopup(event, 'Kashy')">
+            <!-- Kashy -->
+            <div class="envelope" onclick="openLetterPopup(event,'Kashy')">
+
+                <div class="wax-seal">🤝</div>
+
                 <div class="envelope-front">
+
                     <div class="envelope-flap"></div>
+
                     <div class="envelope-body">
-                        <p class="envelope-name">Kashy</p>
+
+                        <p class="envelope-name">
+                            Kashy
+                        </p>
+
                     </div>
+
                 </div>
+
             </div>
 
-            <div class="envelope" onclick="openLetterPopup(event, 'Friend')">
+            <!-- Bestie -->
+            <div class="envelope" onclick="openLetterPopup(event,'Bestie')">
+
+                <div class="wax-seal">🫶</div>
+
                 <div class="envelope-front">
+
                     <div class="envelope-flap"></div>
+
                     <div class="envelope-body">
-                        <p class="envelope-name">Friend</p>
+
+                        <p class="envelope-name">
+                            Bestie
+                        </p>
+
                     </div>
+
                 </div>
+
             </div>
 
         </div>
 
+        <!-- LETTER MODAL -->
+
         <div id="letterPopup" class="letter-popup hidden">
-            <div class="letter-card">
-                <button class="close-letter-btn" onclick="closeLetter()">✕</button>
+
+            <div class="letter-paper">
+
+                <button
+                    class="close-letter-btn"
+                    onclick="closeLetter()">
+
+                    ✕
+
+                </button>
+
+                <div class="paper-stamp">
+                    📮
+                </div>
+
                 <div class="letter-header">
-                    <h2 id="letterFrom">From Amma</h2>
+
+                    <div class="sender-avatar" id="senderEmoji">
+
+                        ❤️
+
+                    </div>
+
+                    <div>
+
+                        <h2 id="letterFrom">
+
+                            From Amma
+
+                        </h2>
+
+                        <span class="letter-tagline">
+
+                            A letter written with love
+
+                        </span>
+
+                    </div>
+
                 </div>
+
+                <div class="letter-divider"></div>
+
                 <div class="letter-content">
+
                     <p id="letterMessage"></p>
+
                 </div>
+
+                <div class="letter-signature">
+
+                    With all my love ❤️
+
+                </div>
+
             </div>
+
         </div>
 
         <button onclick="goToScene(9)">
@@ -993,98 +1130,143 @@
 
     </div>
 
-    <div class="fireflies">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
-
 </section>
 
 <!-- SCENE 9 -->
+
 <section class="scene" id="scene9">
 
-    <div class="content">
+<div class="content">
 
-        <h1>Video Messages 🎥</h1>
+    <h1>Video Messages 🎥</h1>
 
-        <div class="video-messages-grid">
+    <div class="video-messages-grid">
 
-            <!-- ROW 1: Siddhu, Kashy, Amma -->
-            <div class="video-card" onclick="playVideoMessage(event, 'Siddhu', 'assets/videos/siddhu.mp4')">
-                <div class="video-thumbnail">
-                    <div class="play-button">▶</div>
-                </div>
-                <p class="video-name">Siddhu</p>
+        <!-- ROW 1: Siddhu, Kashy, Amma -->
+
+        <div class="video-card"
+             onclick="playVideoMessage(event, 'Siddhu', 'assets/videos/siddhu.mp4')">
+
+            <div class="video-thumbnail">
+                <div class="play-button">▶</div>
             </div>
 
-            <div class="video-card" onclick="playVideoMessage(event, 'Kashy', 'assets/videos/Kashybro.mp4')">
-                <div class="video-thumbnail">
-                    <div class="play-button">▶</div>
-                </div>
-                <p class="video-name">Kashy</p>
-            </div>
-
-            <div class="video-card" onclick="playVideoMessage(event, 'Amma', 'assets/videos/amma.mp4')">
-                <div class="video-thumbnail">
-                    <div class="play-button">▶</div>
-                </div>
-                <p class="video-name">Amma</p>
-            </div>
-
-            <!-- ROW 2: Appa, Vijaya Patti -->
-            <div class="video-card" onclick="playVideoMessage(event, 'Appa', 'assets/videos/Appa.mp4')">
-                <div class="video-thumbnail">
-                    <div class="play-button">▶</div>
-                </div>
-                <p class="video-name">Appa</p>
-            </div>
-
-            <div class="video-card" onclick="playVideoMessage(event, 'Vijaya Patti', 'assets/videos/VijayaPatti.mp4')">
-                <div class="video-thumbnail">
-                    <div class="play-button">▶</div>
-                </div>
-                <p class="video-name">Vijaya Patti</p>
-            </div>
-
-            <!-- ROW 3: Special Surprise -->
-            <div class="video-card special-surprise" onclick="playVideoMessage(event, 'Special Surprise', 'assets/videos/MarkThatha.mp4')">
-                <div class="video-thumbnail">
-                    <div class="play-button">▶</div>
-                </div>
-                <p class="video-name">✨ Special Surprise ✨</p>
-            </div>
+            <p class="video-name">Siddhu</p>
 
         </div>
 
-        <!-- VIDEO PLAYER POPUP -->
-        <div id="videoPlayerPopup" class="video-player-popup hidden">
-            <div class="video-player-card">
-                <button class="close-video-btn" onclick="closeVideoMessage()">✕</button>
-                <h2 id="videoPlayerTitle">Message from Someone</h2>
-                <div class="video-player-container">
-                    <video id="videoPlayer" controls>
-                        <source id="videoSource" src="">
-                    </video>
-                </div>
+        <div class="video-card"
+             onclick="playVideoMessage(event, 'Kashy', 'assets/videos/Kashybro.mp4')">
+
+            <div class="video-thumbnail">
+                <div class="play-button">▶</div>
             </div>
+
+            <p class="video-name">Kashy</p>
+
         </div>
 
-        <button onclick="goToScene(10)">
-            Final Surprise →
-        </button>
+        <div class="video-card"
+             onclick="playVideoMessage(event, 'Amma', 'assets/videos/amma.mp4')">
+
+            <div class="video-thumbnail">
+                <div class="play-button">▶</div>
+            </div>
+
+            <p class="video-name">Amma</p>
+
+        </div>
+
+        <!-- ROW 2: Appa, Vijaya Patti -->
+
+        <div class="video-card"
+             onclick="playVideoMessage(event, 'Appa', 'assets/videos/Appa.mp4')">
+
+            <div class="video-thumbnail">
+                <div class="play-button">▶</div>
+            </div>
+
+            <p class="video-name">Appa</p>
+
+        </div>
+
+        <div class="video-card"
+             onclick="playVideoMessage(event, 'Vijaya Patti', 'assets/videos/VijayaPatti.mp4')">
+
+            <div class="video-thumbnail">
+                <div class="play-button">▶</div>
+            </div>
+
+            <p class="video-name">Vijaya Patti</p>
+
+        </div>
+
+        <!-- ROW 3: Special Surprise -->
+
+        <div class="video-card special-surprise"
+             onclick="playVideoMessage(event, 'Special Surprise', 'assets/videos/MarkThatha.mp4')">
+
+            <div class="video-thumbnail">
+                <div class="play-button">▶</div>
+            </div>
+
+            <p class="video-name">
+                ✨ Special Surprise ✨
+            </p>
+
+        </div>
 
     </div>
 
-    <div class="fireflies">
+    <!-- VIDEO PLAYER POPUP -->
+
+    <div id="videoPlayerPopup"
+         class="video-player-popup hidden">
+
+        <div class="video-player-card">
+
+            <button class="close-video-btn"
+                    onclick="closeVideoMessage()">
+
+                ✕
+
+            </button>
+
+            <h2 id="videoPlayerTitle">
+                Message from Someone
+            </h2>
+
+            <div class="video-player-container">
+
+                <video id="videoPlayer" controls>
+
+                    <source id="videoSource" src="">
+
+                </video>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <button onclick="goToScene(10)">
+        Final Surprise →
+    </button>
+
+</div>
+
+<div class="fireflies">
+
     <span></span>
     <span></span>
     <span></span>
     <span></span>
+
 </div>
 
 </section>
+
 
 <!-- SCENE 10 -->
 <section class="scene" id="scene10">
