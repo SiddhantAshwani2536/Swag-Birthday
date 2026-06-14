@@ -450,38 +450,56 @@ function enableQuizButtons(){
 function initializeMemoryImagePopup(){
     const popup = document.getElementById("memoryImagePopup");
     const fullImage = document.getElementById("memoryImageFull");
-    const memoryImages = document.querySelectorAll("#scene2 .card-back img");
     const memoryCards = document.querySelectorAll("#scene2 .leaf-card");
 
     if(!popup || !fullImage) return;
 
-    memoryCards.forEach(card => {
-        card.addEventListener("click", function(){
-            this.classList.toggle("is-flipped");
-        });
-    });
+    function openMemoryImage(card){
+        const image = card.querySelector(".card-back img");
+        if(!image) return;
 
-    memoryImages.forEach(image => {
-        image.addEventListener("click", function(event){
-            event.stopPropagation();
-            fullImage.src = this.currentSrc || this.src;
-            fullImage.alt = this.alt;
-            popup.classList.remove("hidden");
+        fullImage.src = image.currentSrc || image.src;
+        fullImage.alt = image.alt;
+        popup.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeMemoryImage(){
+        popup.classList.add("hidden");
+        fullImage.src = "";
+        fullImage.alt = "";
+        document.body.style.overflow = "";
+    }
+
+    memoryCards.forEach(card => {
+        card.setAttribute("tabindex", "0");
+        card.setAttribute("role", "button");
+        card.setAttribute("aria-label", "Open " + (card.querySelector("img")?.alt || "memory image"));
+
+        card.addEventListener("click", function(){
+            openMemoryImage(this);
+        });
+
+        card.addEventListener("keydown", function(event){
+            if(event.key === "Enter" || event.key === " "){
+                event.preventDefault();
+                openMemoryImage(this);
+            }
         });
     });
 
     popup.addEventListener("click", function(){
-        popup.classList.add("hidden");
-        fullImage.src = "";
-        fullImage.alt = "";
+        closeMemoryImage();
     });
 
     document.addEventListener("keydown", function(event){
         if(event.key === "Escape" && !popup.classList.contains("hidden")){
-            popup.click();
+            closeMemoryImage();
         }
     });
 }
+
+document.addEventListener("DOMContentLoaded", initializeMemoryImagePopup);
 
 /* =====================================
    PUPPY VILLAGE PERSONALITY QUIZ
