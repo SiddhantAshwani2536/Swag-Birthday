@@ -1176,140 +1176,179 @@
 
 <!-- SCENE 9 -->
 
+<!-- SCENE 9 -->
 <section class="scene" id="scene9">
 
-<div class="content">
+    <div class="content">
 
-    <h1>Video Messages 🎥</h1>
-    <p class="video-subtitle">
-        A few people wanted to be part of your special day.
-        Click a card to hear their message.
-    </p>
+        <h1>Video Messages 🎥</h1>
 
-    <div class="video-messages-grid">
+        <p class="video-subtitle">
+            A few people wanted to be part of your special day.
+            Click a card to hear their message.
+        </p>
 
-        <!-- ROW 1: Siddhu, Kashy, Amma -->
+        <div class="video-messages-grid">
 
-        <div class="video-card"
-             onclick="playVideoMessage(event, 'Siddhu', 'assets/videos/siddhu.mp4')">
+    <!-- TOP ROW -->
 
-            <div class="video-thumbnail">
-                <div class="play-button">▶</div>
-            </div>
+    <div class="video-card siddhu-card"
+         onclick="playVideoMessage(event,'Siddhu','assets/videos/siddhu.mp4')">
 
-            <p class="video-name">Siddhu</p>
-
+        <div class="video-thumbnail">
+            <div class="play-button">▶</div>
         </div>
 
-        <div class="video-card"
-             onclick="playVideoMessage(event, 'Kashy', 'assets/videos/Kashybro.mp4')">
-
-            <div class="video-thumbnail">
-                <div class="play-button">▶</div>
-            </div>
-
-            <p class="video-name">Kashy</p>
-
+        <div class="video-info">
+            <h3 class="video-name">😎 Siddhu</h3>
+            <p class="video-role">Birthday Wishes</p>
         </div>
 
-        <div class="video-card"
-             onclick="playVideoMessage(event, 'Amma', 'assets/videos/amma.mp4')">
+    </div>
 
-            <div class="video-thumbnail">
-                <div class="play-button">▶</div>
-            </div>
+    <div class="video-card kashy-card"
+         onclick="playVideoMessage(event,'Kashy','assets/videos/Kashybro.mp4')">
 
-            <p class="video-name">Amma</p>
-
+        <div class="video-thumbnail">
+            <div class="play-button">▶</div>
         </div>
 
-        <!-- ROW 2: Appa, Vijaya Patti -->
-
-        <div class="video-card"
-             onclick="playVideoMessage(event, 'Appa', 'assets/videos/Appa.mp4')">
-
-            <div class="video-thumbnail">
-                <div class="play-button">▶</div>
-            </div>
-
-            <p class="video-name">Appa</p>
-
+        <div class="video-info">
+            <h3 class="video-name">🤝 Kashy</h3>
+            <p class="video-role">Missing You</p>
         </div>
 
-        <div class="video-card"
-             onclick="playVideoMessage(event, 'Vijaya Patti', 'assets/videos/VijayaPatti.mp4')">
+    </div>
 
-            <div class="video-thumbnail">
-                <div class="play-button">▶</div>
-            </div>
+    <div class="video-card amma-card"
+         onclick="playVideoMessage(event,'Amma','assets/videos/amma.mp4')">
 
-            <p class="video-name">Vijaya Patti</p>
-
+        <div class="video-thumbnail">
+            <div class="play-button">▶</div>
         </div>
 
-        <!-- ROW 3: Special Surprise -->
+        <div class="video-info">
+            <h3 class="video-name">❤️ Amma</h3>
+            <p class="video-role">Love & Blessings</p>
+        </div>
 
-        <div class="video-card special-surprise"
-             onclick="playVideoMessage(event, 'Special Surprise', 'assets/videos/MarkThatha.mp4')">
+    </div>
 
-            <div class="video-thumbnail">
-                <div class="play-button">▶</div>
-            </div>
+</div>
 
-            <p class="video-name">
+
+<!-- SECOND ROW -->
+
+<div class="second-row">
+
+    <div class="video-card appa-card"
+         onclick="playVideoMessage(event,'Appa','assets/videos/Appa.mp4')">
+
+        <div class="video-thumbnail">
+            <div class="play-button">▶</div>
+        </div>
+
+        <div class="video-info">
+            <h3 class="video-name">👨 Appa</h3>
+            <p class="video-role">Proud Of You</p>
+        </div>
+
+    </div>
+
+    <div class="video-card patti-card"
+         onclick="playVideoMessage(event,'Vijaya Patti','assets/videos/VijayaPatti.mp4')">
+
+        <div class="video-thumbnail">
+            <div class="play-button">▶</div>
+        </div>
+
+        <div class="video-info">
+            <h3 class="video-name">🌸 Vijaya Patti</h3>
+            <p class="video-role">Blessings From Home</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- SPECIAL SURPRISE SECTION -->
+
+<div class="special-surprise-section">
+
+    <div class="surprise-heading">
+
+        ✨ One Last Message Awaits ✨
+
+    </div>
+
+    <div class="video-card special-surprise"
+         onclick="playVideoMessage(event,'Special Surprise','assets/videos/MarkThatha.mp4')">
+
+        <div class="video-thumbnail">
+            <div class="play-button">▶</div>
+        </div>
+
+        <div class="video-info">
+            <h3 class="video-name">
                 ✨ Special Surprise ✨
-            </p>
+            </h3>
 
+            <p class="video-role">
+                A Secret Message Just For You
+            </p>
         </div>
 
     </div>
 
-    <!-- VIDEO PLAYER POPUP -->
+</div>
 
-    <div id="videoPlayerPopup"
-         class="video-player-popup hidden">
+        <!-- VIDEO POPUP -->
 
-        <div class="video-player-card">
+        <div id="videoPlayerPopup"
+             class="video-player-popup hidden">
 
-            <button class="close-video-btn"
-                    onclick="closeVideoMessage()">
+            <div class="video-player-card">
 
-                ✕
+                <button class="close-video-btn"
+                        onclick="closeVideoMessage()">
 
-            </button>
+                    ✕
 
-            <h2 id="videoPlayerTitle">
-                Message from Someone
-            </h2>
+                </button>
 
-            <div class="video-player-container">
+                <h2 id="videoPlayerTitle">
+                    💌 A Message From Someone
+                </h2>
 
-                <video id="videoPlayer" controls>
+                <div class="video-player-container">
 
-                    <source id="videoSource" src="">
+                    <video id="videoPlayer" controls>
 
-                </video>
+                        <source id="videoSource" src="">
+
+                    </video>
+
+                </div>
 
             </div>
 
         </div>
 
+        <button onclick="goToScene(10)">
+            Final Surprise →
+        </button>
+
     </div>
 
-    <button onclick="goToScene(10)">
-        Final Surprise →
-    </button>
+    <div class="fireflies">
 
-</div>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
 
-<div class="fireflies">
-
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-
-</div>
+    </div>
 
 </section>
 

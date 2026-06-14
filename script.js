@@ -2085,3 +2085,137 @@ document.addEventListener("DOMContentLoaded", () => {
     loadQuizQuestion();
     updateProgressBar();
 });
+/* =====================================
+   VIDEO MESSAGES
+===================================== */
+
+let videoPopupOpen = false;
+
+function playVideoMessage(event, personName, videoPath){
+
+    event.stopPropagation();
+
+    const popup =
+        document.getElementById("videoPlayerPopup");
+
+    const title =
+        document.getElementById("videoPlayerTitle");
+
+    const video =
+        document.getElementById("videoPlayer");
+
+    const source =
+        document.getElementById("videoSource");
+
+    if(!popup || !title || !video || !source){
+        console.error("Video player elements not found");
+        return;
+    }
+
+    title.innerHTML =
+        `💌 Message from ${personName}`;
+
+    source.src = videoPath;
+
+    video.load();
+
+    popup.classList.remove("hidden");
+
+    document.body.style.overflow = "hidden";
+
+    videoPopupOpen = true;
+
+    /* autoplay attempt */
+    setTimeout(() => {
+        video.play().catch(() => {});
+    }, 300);
+}
+
+function closeVideoMessage(){
+
+    const popup =
+        document.getElementById("videoPlayerPopup");
+
+    const video =
+        document.getElementById("videoPlayer");
+
+    if(video){
+        video.pause();
+        video.currentTime = 0;
+    }
+
+    if(popup){
+        popup.classList.add("hidden");
+    }
+
+    document.body.style.overflow = "";
+
+    videoPopupOpen = false;
+}
+
+/* =====================================
+   OUTSIDE CLICK CLOSE
+===================================== */
+
+document.addEventListener("click", function(event){
+
+    if(!videoPopupOpen) return;
+
+    const popup =
+        document.getElementById("videoPlayerPopup");
+
+    const card =
+        document.querySelector(".video-player-card");
+
+    if(
+        popup &&
+        card &&
+        !card.contains(event.target) &&
+        !event.target.closest(".video-card")
+    ){
+        closeVideoMessage();
+    }
+
+});
+
+/* =====================================
+   ESC CLOSE
+===================================== */
+
+document.addEventListener("keydown", function(event){
+
+    if(
+        event.key === "Escape" &&
+        videoPopupOpen
+    ){
+        closeVideoMessage();
+    }
+
+});
+
+/* =====================================
+   VIDEO ENDED EFFECT
+===================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const video =
+        document.getElementById("videoPlayer");
+
+    if(video){
+
+        video.addEventListener("ended", () => {
+
+            const title =
+                document.getElementById("videoPlayerTitle");
+
+            if(title){
+                title.innerHTML =
+                "❤️ Hope you enjoyed the message";
+            }
+
+        });
+
+    }
+
+});
