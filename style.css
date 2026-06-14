@@ -273,7 +273,7 @@ button{
     text-align:center;
     font-weight:800;
     letter-spacing:.4px;
-    position:relative;
+    position:absolute;
     overflow:hidden;
 }
 
@@ -313,6 +313,52 @@ button{
     object-fit:cover;
     display:block;
     border-radius:50% 55% 50% 55%;
+}
+
+.memory-image-popup{
+    position:fixed;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:clamp(20px, 5vw, 60px);
+    background:rgba(4, 12, 8, .92);
+    backdrop-filter:blur(10px);
+    z-index:999999;
+    cursor:zoom-out;
+    animation:memoryPopupFadeIn .3s ease;
+}
+
+.memory-image-popup.hidden{
+    display:none;
+}
+
+.memory-image-popup img{
+    display:block;
+    max-width:92vw;
+    max-height:88vh;
+    width:auto;
+    height:auto;
+    object-fit:contain;
+    border-radius:18px;
+    box-shadow:0 30px 90px rgba(0,0,0,.65);
+    animation:memoryImageExpand .35s ease;
+}
+
+@keyframes memoryPopupFadeIn{
+    from{ opacity:0; }
+    to{ opacity:1; }
+}
+
+@keyframes memoryImageExpand{
+    from{
+        opacity:0;
+        transform:scale(.88);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
 }
 
 .leaf-card::before{
@@ -593,6 +639,14 @@ button{
     text-shadow:1px 1px 3px rgba(0,0,0,.3);
 }
 
+.quiz-next-btn{
+    display:block;
+    margin:18px auto 0;
+    padding:11px 24px;
+    font-size:15px;
+    font-weight:700;
+}
+
 /* QUIZ RESULTS SCREEN */
 
 .quiz-results-screen{
@@ -727,6 +781,81 @@ button{
         opacity: 1;
         transform: scale(1);
     }
+}
+
+.scene-navigation{
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1100;
+}
+
+.nav-circle{
+    pointer-events: all;
+    position: fixed;
+    top: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.22);
+    background: rgba(10, 10, 20, 0.7);
+    color: #ffffff;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+}
+
+.nav-circle:hover{
+    transform: translateY(-2px);
+    background: rgba(255,255,255,0.12);
+}
+
+.nav-circle.hidden{
+    display: none;
+}
+
+.nav-back{
+    left: 20px;
+}
+
+.nav-forward{
+    right: 20px;
+}
+
+@media(max-width: 768px){
+    .nav-circle{
+        top: 14px;
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+    }
+    .nav-back{
+        left: 12px;
+    }
+    .nav-forward{
+        right: 12px;
+    }
+}
+
+.restart-journey-btn{
+    margin-top: 30px;
+    background: rgba(255,255,255,0.12);
+    color: #ffffff;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 30px;
+    padding: 12px 24px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.restart-journey-btn:hover{
+    background: rgba(255,255,255,0.18);
+    transform: translateY(-2px);
 }
 
 @media(max-width: 768px){
@@ -1618,6 +1747,8 @@ button{
     z-index:5;
 
     pointer-events:none;
+
+    overflow:hidden;
 }
 
 .curtain{
@@ -2584,6 +2715,8 @@ video{
     position:relative;
 
     height:250px;
+
+    overflow:hidden;
 }
 
 .lantern{
@@ -2709,6 +2842,7 @@ video{
     position:absolute;
     inset:0;
     pointer-events:none;
+    overflow:hidden;
 }
 
 .fireflies span{
@@ -3037,7 +3171,7 @@ video{
 
     position:relative;
 
-    width:900px;
+    width:960px;
 
     max-width:95vw;
 
@@ -4009,5 +4143,642 @@ video{
         transform:
         translateY(-60px)
         scale(1.8);
+    }
+}
+
+/* ==========================================
+   RESPONSIVE LAYOUT FOUNDATION
+========================================== */
+
+html,
+body{
+    width:100%;
+    min-height:100%;
+}
+
+body{
+    overflow:hidden;
+}
+
+#scene-container{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+}
+
+.scene{
+    position:absolute;
+    inset:0;
+    width:100%;
+    min-height:100%;
+    height:100%;
+    padding:
+        max(72px, env(safe-area-inset-top))
+        max(24px, env(safe-area-inset-right))
+        max(48px, env(safe-area-inset-bottom))
+        max(24px, env(safe-area-inset-left));
+    align-items:flex-start;
+    overflow-x:hidden;
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+}
+
+.scene > .content{
+    width:min(100%, 1100px);
+    max-width:1100px;
+    margin:auto;
+    flex:0 0 auto;
+}
+
+#scene4,
+#scene5,
+#scene6,
+#scene7{
+    position:absolute !important;
+    inset:0 !important;
+    width:100%;
+    height:100%;
+    min-height:100%;
+    overflow-x:hidden !important;
+    overflow-y:auto !important;
+}
+
+#scene5{
+    padding-top:max(72px, env(safe-area-inset-top));
+}
+
+#scene5 .content{
+    width:min(100%, 1400px);
+}
+
+#scene7{
+    align-items:flex-start;
+}
+
+#scene8{
+    background:linear-gradient(180deg, #2d183d, #59315f, #8a5776);
+}
+
+#scene9{
+    background:linear-gradient(180deg, #15152d, #28255a, #45418a);
+}
+
+#scene10{
+    background:linear-gradient(180deg, #130923, #3b174c, #8b3767);
+}
+
+img,
+video{
+    max-width:100%;
+}
+
+.leaf-card.is-flipped .card-inner{
+    transform:rotateY(180deg);
+}
+
+@media (hover:none), (pointer:coarse){
+    .leaf-card:hover{
+        transform:none;
+    }
+
+    .leaf-card:hover .card-inner{
+        transform:none;
+    }
+
+    .leaf-card.is-flipped .card-inner{
+        transform:rotateY(180deg);
+    }
+
+    .memory-card:hover,
+    .quiz-btn:hover,
+    .puppy-option:hover,
+    .breed-preview-card:hover,
+    .dance-photo:hover,
+    .envelope:hover,
+    .video-card:hover{
+        transform:none;
+    }
+}
+
+@media(max-width:1100px){
+    .scene{
+        padding-left:24px;
+        padding-right:24px;
+    }
+
+    .forest-tree{
+        max-width:900px;
+    }
+
+    .dance-gallery{
+        grid-template-columns:repeat(3, minmax(0, 1fr));
+    }
+
+    .breed-preview-grid{
+        grid-template-columns:repeat(3, minmax(0, 1fr));
+    }
+
+    .bridge-container{
+        width:100%;
+        max-width:100%;
+        height:auto;
+        display:grid;
+        grid-template-columns:repeat(4, 90px);
+        justify-content:center;
+        gap:24px 32px;
+        transform:none;
+        margin:30px auto;
+    }
+
+    .bridge-pebble,
+    #pebble0,
+    #pebble1,
+    #pebble2,
+    #pebble3,
+    #pebble4,
+    #pebble5,
+    #pebble6{
+        position:relative;
+        inset:auto !important;
+        margin:0;
+    }
+
+    .bridge-girl{
+        display:none;
+    }
+}
+
+@media(max-width:900px){
+    .scene{
+        padding-top:max(68px, env(safe-area-inset-top));
+        padding-bottom:max(40px, env(safe-area-inset-bottom));
+    }
+
+    h1,
+    .puppy-village-header h1,
+    .dance-title,
+    .dream-title,
+    .award-title{
+        font-size:clamp(2rem, 8vw, 3rem);
+    }
+
+    .forest-tree{
+        height:auto;
+        min-height:0;
+        display:grid;
+        grid-template-columns:repeat(3, minmax(120px, 170px));
+        justify-content:center;
+        gap:28px;
+        padding:30px 0 10px;
+    }
+
+    .tree-crown,
+    .tree-trunk{
+        display:none;
+    }
+
+    .leaf-card,
+    .leaf-1,
+    .leaf-2,
+    .leaf-3,
+    .leaf-4,
+    .leaf-5,
+    .leaf-6{
+        position:relative;
+        inset:auto;
+        width:min(170px, 100%);
+        aspect-ratio:1;
+        height:auto;
+        margin:0 auto;
+        animation:none;
+    }
+
+    .leaf-card .card-inner{
+        height:auto;
+        aspect-ratio:1;
+    }
+
+    .bridge-container{
+        width:100%;
+        max-width:100%;
+        height:auto;
+        display:grid;
+        grid-template-columns:repeat(4, 90px);
+        justify-content:center;
+        gap:24px 32px;
+        transform:none;
+        margin:30px auto;
+    }
+
+    .bridge-pebble,
+    #pebble0,
+    #pebble1,
+    #pebble2,
+    #pebble3,
+    #pebble4,
+    #pebble5,
+    #pebble6{
+        position:relative;
+        inset:auto !important;
+        margin:0;
+    }
+
+    .dream-subtitle{
+        margin-bottom:20px;
+    }
+
+    .dream-water{
+        position:fixed;
+        height:38%;
+        pointer-events:none;
+    }
+
+    .quality-card{
+        margin:30px auto;
+    }
+
+    .award-container{
+        padding:10px;
+    }
+
+    .award-trophy{
+        font-size:clamp(100px, 20vw, 150px);
+        margin:20px auto;
+    }
+
+    .video-messages-grid,
+    .envelopes-container{
+        width:100%;
+        padding:0;
+    }
+}
+
+@media(max-width:700px){
+    .scene{
+        padding-left:16px;
+        padding-right:16px;
+    }
+
+    .content{
+        width:100%;
+    }
+
+    h1{
+        margin-bottom:14px;
+    }
+
+    button{
+        max-width:100%;
+        padding:13px 24px;
+        font-size:16px;
+    }
+
+    .home-icon,
+    .puppy-icon{
+        font-size:64px;
+    }
+
+    .forest-tree{
+        grid-template-columns:repeat(2, minmax(110px, 150px));
+        gap:24px 18px;
+        padding-top:20px;
+    }
+
+    .leaf-card,
+    .leaf-1,
+    .leaf-2,
+    .leaf-3,
+    .leaf-4,
+    .leaf-5,
+    .leaf-6{
+        width:min(150px, 100%);
+    }
+
+    .card-front{
+        font-size:1rem;
+    }
+
+    .quiz-box{
+        margin-top:20px;
+    }
+
+    .kbc-header{
+        padding:18px 14px;
+        margin-bottom:20px;
+    }
+
+    .kbc-title{
+        font-size:18px;
+        letter-spacing:1px;
+    }
+
+    #quiz-question{
+        font-size:18px;
+        margin-bottom:20px;
+    }
+
+    .quiz-buttons{
+        grid-template-columns:1fr;
+        gap:12px;
+        margin-top:20px;
+    }
+
+    .quiz-btn{
+        min-height:72px;
+        padding:12px 14px;
+    }
+
+    #quiz-result{
+        margin-top:20px;
+    }
+
+    .quiz-results-screen{
+        padding:22px 14px;
+    }
+
+    .quiz-results-buttons{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .quiz-results-btn{
+        width:100%;
+        margin-top:0;
+    }
+
+    .puppy-village-content{
+        padding:0;
+    }
+
+    .puppy-village-header{
+        margin-bottom:24px;
+    }
+
+    .puppy-village-header .subtitle,
+    .result-description{
+        font-size:16px;
+    }
+
+    .breed-preview-grid{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+        gap:12px;
+    }
+
+    .breed-preview-card{
+        padding:14px 8px;
+    }
+
+    .puppy-quiz-card,
+    .puppy-result{
+        padding:24px 16px;
+        border-radius:22px;
+    }
+
+    .puppy-option{
+        margin-top:0;
+        padding:16px 12px;
+    }
+
+    .result-dog-image{
+        width:min(200px, 70vw);
+        height:min(200px, 70vw);
+    }
+
+    .dance-gallery{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+        gap:12px;
+    }
+
+    .dance-photo{
+        padding:5px;
+    }
+
+    .dance-photo img{
+        height:clamp(150px, 48vw, 240px);
+    }
+
+    .hero-dance-card{
+        width:min(280px, 85vw);
+        margin-bottom:35px;
+    }
+
+    .spotlight{
+        width:100%;
+        max-width:500px;
+    }
+
+    .video-butterflies{
+        margin-top:40px;
+    }
+
+    .bridge-container{
+        grid-template-columns:repeat(2, 80px);
+        gap:22px 46px;
+    }
+
+    .bridge-pebble{
+        width:80px;
+        height:80px;
+        font-size:25px;
+    }
+
+    .quality-card{
+        width:100%;
+        padding:24px 16px;
+    }
+
+    .final-name{
+        gap:8px;
+    }
+
+    .final-name span{
+        width:44px;
+        height:44px;
+        font-size:20px;
+    }
+
+    .dream-final h2{
+        font-size:2rem;
+    }
+
+    .dream-moon{
+        top:65px;
+        right:18px;
+        width:58px;
+        height:58px;
+    }
+
+    .award-message h2{
+        font-size:1.5rem;
+    }
+
+    .winner-name{
+        overflow-wrap:anywhere;
+    }
+
+    .award-message p,
+    .award-reveal-text{
+        font-size:16px;
+    }
+
+    .award-photo-frame{
+        width:min(100%, 420px);
+    }
+
+    .award-reveal{
+        min-height:0;
+    }
+
+    .envelopes-container{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+        gap:16px;
+        margin:30px auto;
+    }
+
+    .envelope-front{
+        height:130px;
+    }
+
+    .video-messages-grid{
+        grid-template-columns:1fr;
+        gap:22px;
+        margin:30px auto;
+    }
+
+    .video-card.special-surprise{
+        grid-column:1;
+        width:100%;
+        margin-top:0;
+    }
+
+    .letter-popup,
+    .video-player-popup,
+    .dance-video-popup{
+        padding:14px;
+    }
+
+    .letter-card,
+    .video-player-card,
+    .dance-video-card{
+        width:100%;
+        max-height:90dvh;
+        overflow:auto;
+    }
+
+    .letter-card{
+        padding:48px 20px 24px;
+    }
+
+    .video-player-card,
+    .dance-video-card{
+        padding:50px 10px 14px;
+    }
+
+    .close-video{
+        top:4px;
+        right:4px;
+        width:40px;
+        height:40px;
+        margin:0;
+    }
+
+    .close-video-btn{
+        top:6px;
+        right:6px;
+        margin:0;
+    }
+
+    .lantern-sky{
+        height:180px;
+    }
+}
+
+@media(max-width:420px){
+    .scene{
+        padding-left:12px;
+        padding-right:12px;
+    }
+
+    .forest-tree{
+        gap:18px 10px;
+    }
+
+    .leaf-card,
+    .leaf-1,
+    .leaf-2,
+    .leaf-3,
+    .leaf-4,
+    .leaf-5,
+    .leaf-6{
+        width:min(138px, 100%);
+    }
+
+    .breed-preview-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .dance-gallery{
+        grid-template-columns:1fr;
+    }
+
+    .dance-photo img{
+        height:auto;
+        max-height:70vh;
+    }
+
+    .envelopes-container{
+        grid-template-columns:1fr;
+    }
+
+    .envelope{
+        width:min(260px, 100%);
+        margin:auto;
+    }
+
+    .final-name span{
+        width:38px;
+        height:38px;
+        font-size:17px;
+    }
+
+    .award-badge{
+        padding:10px 14px;
+        font-size:13px;
+    }
+}
+
+@media(max-height:720px) and (min-width:701px){
+    .scene{
+        padding-top:64px;
+        padding-bottom:36px;
+    }
+
+    .home-icon{
+        font-size:72px;
+    }
+
+    .forest-tree{
+        margin-top:24px;
+    }
+
+    .kbc-header{
+        padding:16px;
+        margin-bottom:18px;
+    }
+
+    .quiz-buttons{
+        margin-top:18px;
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+    *,
+    *::before,
+    *::after{
+        scroll-behavior:auto !important;
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.01ms !important;
     }
 }

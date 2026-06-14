@@ -39,7 +39,12 @@ const quizQuestions = [
     {
         question: "Who is the best multitasker yet stays humble?",
         options: { a: "Nandini", b: "Uma", c: "Swagu", d: "None of the above" },
-        correct: "d"
+        correct: "d",
+        wrongResponses: {
+            a: "Good multitaskers but ain't humble.",
+            b: "Good multitaskers but ain't humble.",
+            c: "By selecting your own name u proved u ain't humble."
+        }
     },
     {
         question: "Who is the best Male dancer in our fam?",
@@ -86,59 +91,153 @@ const quizQuestions = [
 let currentQuestionIndex = 0;
 let quizScore = 0;
 
+let sceneHistory = [1];
+let historyIndex = 0;
+
+function goBackScene(){
+    if(historyIndex > 0){
+        goToScene(sceneHistory[historyIndex - 1], true);
+    }
+}
+
+function goForwardScene(){
+    if(historyIndex < sceneHistory.length - 1){
+        goToScene(sceneHistory[historyIndex + 1], true);
+    }
+}
+
+function restartJourney(){
+    resetSceneHistory();
+    goToScene(1, true);
+}
+
+function resetSceneHistory(){
+    sceneHistory = [1];
+    historyIndex = 0;
+    updateNavButtons();
+}
+
+function updateNavButtons(){
+    const backBtn = document.getElementById("backNavBtn");
+    const forwardBtn = document.getElementById("forwardNavBtn");
+    const current = document.querySelector(".scene.active");
+    const currentScene = current ? parseInt(current.id.replace("scene", ""), 10) : 1;
+
+    if(currentScene === 10){
+        backBtn.classList.add("hidden");
+        forwardBtn.classList.add("hidden");
+        return;
+    }
+
+    if(historyIndex > 0){
+        backBtn.classList.remove("hidden");
+    } else {
+        backBtn.classList.add("hidden");
+    }
+
+    if(historyIndex < sceneHistory.length - 1){
+        forwardBtn.classList.remove("hidden");
+    } else {
+        forwardBtn.classList.add("hidden");
+    }
+}
+
+function goToScene(nextScene, fromHistory = false){
+    const current = document.querySelector(".scene.active");
+    const next = document.getElementById("scene" + nextScene);
+    const overlay = document.getElementById("transition-overlay");
+
+    if(!next || current === next) return;
+
+    const currentScene = current ? parseInt(current.id.replace("scene", ""), 10) : 1;
+
+    if(!fromHistory){
+        if(historyIndex < sceneHistory.length - 1){
+            sceneHistory = sceneHistory.slice(0, historyIndex + 1);
+        }
+        sceneHistory.push(nextScene);
+        historyIndex = sceneHistory.length - 1;
+    } else {
+        const targetIndex = sceneHistory.indexOf(nextScene);
+        if(targetIndex >= 0){
+            historyIndex = targetIndex;
+        }
+    }
+
+    overlay.classList.add("animate");
+
+    setTimeout(() => {
+        if(current){
+            current.classList.remove("active");
+        }
+        next.classList.add("active");
+        next.scrollTop = 0;
+        updateNavButtons();
+    }, 500);
+
+    setTimeout(() => {
+        overlay.classList.remove("animate");
+    }, 1000);
+}
+
+function updateSceneHistoryForCurrentLoad(){
+    const current = document.querySelector(".scene.active");
+    const currentScene = current ? parseInt(current.id.replace("scene", ""), 10) : 1;
+    if(currentScene !== sceneHistory[historyIndex]){
+        sceneHistory = [currentScene];
+        historyIndex = 0;
+    }
+    updateNavButtons();
+}
+
 function quizAnswer(selectedOption){
 
     const result = document.getElementById("quiz-result");
     const correct = quizQuestions[currentQuestionIndex].correct;
+    const isLastQuestion = currentQuestionIndex === quizQuestions.length - 1;
 
     if(selectedOption === correct){
         quizScore++; // Increment score for correct answer
-        
-        if(currentQuestionIndex < quizQuestions.length - 1){
-            result.innerHTML =
-            `
+
+        result.innerHTML =
+        `
             <div class="quiz-feedback">
                 🎉 CORRECT!<br>
-                <span class="loading-dots">Loading next question</span>
+                <button class="quiz-next-btn" onclick="advanceFamilyQuiz()">
+                    ${isLastQuestion ? "See Results" : "Next Question"} →
+                </button>
             </div>
-            `;
-
-            disableQuizButtons();
-
-            setTimeout(() => {
-                currentQuestionIndex++;
-                updateProgressBar();
-                loadQuizQuestion();
-                enableQuizButtons();
-            }, 1200);
-        } else {
-            // Show results screen instead of auto-advancing
-            disableQuizButtons();
-            showQuizResults();
-        }
+        `;
     } else {
+        const currentQuestion = quizQuestions[currentQuestionIndex];
+        const wrongResponse =
+            currentQuestion.wrongResponses?.[selectedOption] ||
+            "Oops! Better luck next time.";
+
         result.innerHTML =
         `
         <div class="quiz-feedback" style="color:#ff6b6b;">
-            ❌ Oops! Better luck next time.<br>
-            <span class="loading-dots">Loading next question</span>
+            ❌ ${wrongResponse}<br>
+            <button class="quiz-next-btn" onclick="advanceFamilyQuiz()">
+                ${isLastQuestion ? "See Results" : "Next Question"} →
+            </button>
         </div>
         `;
-
-        disableQuizButtons();
-
-        setTimeout(() => {
-            if(currentQuestionIndex < quizQuestions.length - 1){
-                currentQuestionIndex++;
-                updateProgressBar();
-                loadQuizQuestion();
-                enableQuizButtons();
-            } else {
-                // Show results screen instead of auto-advancing
-                showQuizResults();
-            }
-        }, 1200);
     }
+
+    disableQuizButtons();
+}
+
+function advanceFamilyQuiz(){
+    if(currentQuestionIndex >= quizQuestions.length - 1){
+        showQuizResults();
+        return;
+    }
+
+    currentQuestionIndex++;
+    updateProgressBar();
+    loadQuizQuestion();
+    enableQuizButtons();
 }
 
 function showQuizResults(){
@@ -342,6 +441,46 @@ function disableQuizButtons(){
 function enableQuizButtons(){
     const buttons = document.querySelectorAll(".quiz-btn");
     buttons.forEach(btn => btn.disabled = false);
+}
+
+/* =====================================
+   MEMORY FOREST IMAGE POPUP
+===================================== */
+
+function initializeMemoryImagePopup(){
+    const popup = document.getElementById("memoryImagePopup");
+    const fullImage = document.getElementById("memoryImageFull");
+    const memoryImages = document.querySelectorAll("#scene2 .card-back img");
+    const memoryCards = document.querySelectorAll("#scene2 .leaf-card");
+
+    if(!popup || !fullImage) return;
+
+    memoryCards.forEach(card => {
+        card.addEventListener("click", function(){
+            this.classList.toggle("is-flipped");
+        });
+    });
+
+    memoryImages.forEach(image => {
+        image.addEventListener("click", function(event){
+            event.stopPropagation();
+            fullImage.src = this.currentSrc || this.src;
+            fullImage.alt = this.alt;
+            popup.classList.remove("hidden");
+        });
+    });
+
+    popup.addEventListener("click", function(){
+        popup.classList.add("hidden");
+        fullImage.src = "";
+        fullImage.alt = "";
+    });
+
+    document.addEventListener("keydown", function(event){
+        if(event.key === "Escape" && !popup.classList.contains("hidden")){
+            popup.click();
+        }
+    });
 }
 
 /* =====================================
@@ -870,6 +1009,7 @@ function initializeQuiz(){
 function initializeAll(){
     initializeQuiz();
     initializePuppyQuiz();
+    initializeMemoryImagePopup();
 }
 
 // Initialize when DOM is ready
@@ -1169,6 +1309,7 @@ description:
 let currentBridgeStep = 0;
 
 let bridgeBusy = false;
+let bridgeCardOpen = false;
 
 /* =====================================
    INITIALIZE
@@ -1179,6 +1320,7 @@ function initializeDreamBridge(){
     currentBridgeStep = 0;
 
     bridgeBusy = false;
+    bridgeCardOpen = false;
 
     const girl =
     document.getElementById(
@@ -1225,14 +1367,18 @@ function placeGirlOnPebble(pebble){
    CLICK PEBBLE
 ===================================== */
 
-function activatePebble(index){
+function activatePebble(event, index){
 
     if(bridgeBusy) return;
 
     if(index !== currentBridgeStep)
         return;
 
+    if(event && event.stopPropagation)
+        event.stopPropagation();
+
     bridgeBusy = true;
+    bridgeCardOpen = true;
 
     const data =
     bridgeQualities[index];
@@ -1263,16 +1409,20 @@ function activatePebble(index){
 
     createRippleEffect(index);
 
-    setTimeout(()=>{
+}
 
-        card.classList.add(
-            "hidden"
-        );
+function closeQualityCard(){
+    const card = document.getElementById(
+        "qualityCard"
+    );
 
-        moveToNextPebble();
+    if(!card || card.classList.contains("hidden"))
+        return;
 
-    },5000);
+    card.classList.add("hidden");
+    bridgeCardOpen = false;
 
+    moveToNextPebble();
 }
 
 /* =====================================
@@ -1327,6 +1477,15 @@ function moveToNextPebble(){
     },1000);
 
 }
+
+// Close the quality card when the user clicks anywhere on the screen
+// after the card has opened.
+document.addEventListener("click", function(event){
+    const card = document.getElementById("qualityCard");
+    if(bridgeCardOpen && card && !card.classList.contains("hidden")){
+        closeQualityCard();
+    }
+});
 
 /* =====================================
    HOP ANIMATION
@@ -1742,9 +1901,9 @@ document.addEventListener(
 // Reinitialize sparkles when scene changes
 const originalGoToScene = goToScene;
 
-goToScene = function(nextScene){
+goToScene = function(nextScene, fromHistory = false){
 
-    originalGoToScene(nextScene);
+    originalGoToScene(nextScene, fromHistory);
     
     // Reinitialize trophy sparkles for the new scene
     setTimeout(()=>{

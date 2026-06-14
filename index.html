@@ -10,6 +10,11 @@
 
 <div id="transition-overlay"></div>
 
+<div class="scene-navigation">
+    <button id="backNavBtn" class="nav-circle nav-back hidden" onclick="goBackScene()" aria-label="Go back">◀</button>
+    <button id="forwardNavBtn" class="nav-circle nav-forward hidden" onclick="goForwardScene()" aria-label="Go forward">▶</button>
+</div>
+
 <div id="scene-container">
 
     <!-- SCENE 1 -->
@@ -77,7 +82,7 @@
                             Childhood
                         </div>
                         <div class="card-face card-back">
-                            <img src="assets\images\childhood.png" alt="Childhood memory image">
+                            <img src="assets/images/childhood.png" alt="Childhood memory image">
                         </div>
                     </div>
                 </div>
@@ -88,7 +93,7 @@
                             Family
                         </div>
                         <div class="card-face card-back">
-                            <img src="assets\images\family.png" alt="Family memory image">
+                            <img src="assets/images/family.png" alt="Family memory image">
                         </div>
                     </div>
                 </div>
@@ -99,7 +104,7 @@
                             Laughter
                         </div>
                         <div class="card-face card-back">
-                            <img src="assets\images\laughter.png" alt="Laughter memory image">
+                            <img src="assets/images/Laughter.png" alt="Laughter memory image">
                         </div>
                     </div>
                 </div>
@@ -110,7 +115,7 @@
                             Adventure
                         </div>
                         <div class="card-face card-back">
-                            <img src="assets\images\adventure.png" alt="Adventure memory image">
+                            <img src="assets/images/adventure.png" alt="Adventure memory image">
                         </div>
                     </div>
                 </div>
@@ -121,7 +126,7 @@
                             Dreams
                         </div>
                         <div class="card-face card-back">
-                            <img src="assets\images\dreams.png" alt="Dream memory image">
+                            <img src="assets/images/Dreams.png" alt="Dream memory image">
                         </div>
                     </div>
                 </div>
@@ -132,7 +137,7 @@
                             Joy
                         </div>
                         <div class="card-face card-back">
-                            <img src="assets\images\joy.png" alt="Joy memory image">
+                            <img src="assets/images/joy.png" alt="Joy memory image">
                         </div>
                     </div>
                 </div>
@@ -603,7 +608,7 @@
             <div
                 class="bridge-pebble active"
                 id="pebble0"
-                onclick="activatePebble(0)">
+                onclick="activatePebble(event, 0)">
 
                 S
 
@@ -614,7 +619,7 @@
             <div
                 class="bridge-pebble"
                 id="pebble1"
-                onclick="activatePebble(1)">
+                onclick="activatePebble(event, 1)">
 
                 W
 
@@ -625,7 +630,7 @@
             <div
                 class="bridge-pebble"
                 id="pebble2"
-                onclick="activatePebble(2)">
+                onclick="activatePebble(event, 2)">
 
                 A
 
@@ -636,7 +641,7 @@
             <div
                 class="bridge-pebble"
                 id="pebble3"
-                onclick="activatePebble(3)">
+                onclick="activatePebble(event, 3)">
 
                 G
 
@@ -647,7 +652,7 @@
             <div
                 class="bridge-pebble"
                 id="pebble4"
-                onclick="activatePebble(4)">
+                onclick="activatePebble(event, 4)">
 
                 A
 
@@ -658,7 +663,7 @@
             <div
                 class="bridge-pebble"
                 id="pebble5"
-                onclick="activatePebble(5)">
+                onclick="activatePebble(event, 5)">
 
                 T
 
@@ -669,7 +674,7 @@
             <div
                 class="bridge-pebble"
                 id="pebble6"
-                onclick="activatePebble(6)">
+                onclick="activatePebble(event, 6)">
 
                 A
 
@@ -1103,6 +1108,10 @@
             this will always be home.
         </p>
 
+        <button class="restart-journey-btn" onclick="restartJourney()">
+            Restart Journey 🔄
+        </button>
+
     </div>
 
     <div class="fireflies">
@@ -1114,6 +1123,15 @@
 
 </section>
 
+</div>
+
+<div
+    id="memoryImagePopup"
+    class="memory-image-popup hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Expanded memory image">
+    <img id="memoryImageFull" src="" alt="">
 </div>
 
 <script src="script.js"></script>
